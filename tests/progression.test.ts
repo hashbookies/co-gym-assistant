@@ -5,6 +5,7 @@ import type { PoolExercise, ExerciseLog, ActualSet, ReadinessResult, Equipment, 
 function ex(equipment: Equipment, substitutions: string[] = []): PoolExercise {
   return {
     slug: "x", displayName: "X", sourceId: "0", equipment, category: "Squat",
+    image: "", gif: "",
     movementPattern: "squat", movementPatternConfidence: "high", splitTag: "legs",
     splitTagConfidence: "high", bodyRegion: "lower", primaryMuscle: "quads", secondaryMuscles: [],
     beginnerSuitable: true, difficulty: "beginner", difficultyConfidence: "manual-confirmed",

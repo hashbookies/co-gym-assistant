@@ -67,6 +67,8 @@ function prescribe(ex: PoolExercise, mode: WorkoutMode): ExercisePrescription {
     movementPattern: ex.movementPattern,
     primaryMuscle: ex.primaryMuscle,
     difficulty: ex.difficulty,
+    image: ex.image,
+    gif: ex.gif,
     sets,
     reps: ex.repRange,
     timeBased: ex.timeBased,

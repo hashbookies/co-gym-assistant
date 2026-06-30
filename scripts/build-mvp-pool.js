@@ -384,12 +384,18 @@ const out = SELECT.map((s) => {
   const preset = P[s.role];
   const timeBased = !!preset.timeBased;
   const lowEnergy = s.lowEnergy === true; // explicit, conservative
+  // Media: reference the same static assets the library uses (absolute paths).
+  // We store only the URL strings (no media duplication) so workout cards can
+  // show a thumbnail + on-demand demo without bundling the full library.
+  const media = (p) => (p ? (p.startsWith("/") ? p : `/${p}`) : "");
   return {
     slug: r.slug,
     displayName: s.displayName || r.name,
     sourceId: r.id,
     equipment: r.equipment,
     category: s.cat,
+    image: media(r.image),
+    gif: media(r.gifUrl),
 
     movementPattern: r.movementPattern,
     movementPatternConfidence: r._confidence.movementPattern,
@@ -430,7 +436,7 @@ const out = SELECT.map((s) => {
     whySelected: s.why,
 
     _provenance: {
-      source: ["sourceId", "displayName", "equipment", "primaryMuscle", "secondaryMuscles"],
+      source: ["sourceId", "displayName", "equipment", "primaryMuscle", "secondaryMuscles", "image", "gif"],
       inferred: ["movementPattern", "splitTag", "bodyRegion", "homeSuitable"],
       manualCurated: ["category", "difficulty", "repRange", "setRange", "restSeconds", "rpeTarget",
         "progression", "regression", "substitutions", "lowEnergyFriendly", "jointRiskNotes",

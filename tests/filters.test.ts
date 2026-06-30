@@ -9,6 +9,7 @@ import type { PoolExercise, Settings } from "@/lib/types";
 function ex(overrides: Partial<PoolExercise>): PoolExercise {
   return {
     slug: "x", displayName: "X", sourceId: "0", equipment: "dumbbell", category: "Squat",
+    image: "", gif: "",
     movementPattern: "squat", movementPatternConfidence: "high", splitTag: "legs",
     splitTagConfidence: "high", bodyRegion: "lower", primaryMuscle: "quads", secondaryMuscles: [],
     beginnerSuitable: true, difficulty: "beginner", difficultyConfidence: "manual-confirmed",

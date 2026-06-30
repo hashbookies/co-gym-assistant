@@ -20,6 +20,8 @@ export interface PoolExercise {
   sourceId: string;
   equipment: Equipment;
   category: string; // e.g. "Squat", "Horizontal push" — the curation axis
+  image: string; // absolute /images/... thumbnail (may be "")
+  gif: string;   // absolute /videos/... demo (may be "")
 
   movementPattern: MovementPattern;
   movementPatternConfidence: Confidence;
@@ -107,6 +109,8 @@ export interface ExercisePrescription {
   movementPattern: MovementPattern;
   primaryMuscle: string;
   difficulty: Difficulty;
+  image: string; // absolute /images/... thumbnail (may be "")
+  gif: string;   // absolute /videos/... demo (may be "")
   sets: [number, number]; // min–max
   reps: [number, number]; // reps, or seconds when timeBased
   timeBased: boolean;

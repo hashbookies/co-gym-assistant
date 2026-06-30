@@ -7,7 +7,7 @@ import type { ExercisePrescription, ExerciseLog } from "@/lib/types";
 function presc(overrides: Partial<ExercisePrescription> = {}): ExercisePrescription {
   return {
     slug: "x", displayName: "X", equipment: "dumbbell", movementPattern: "squat",
-    primaryMuscle: "quads", difficulty: "beginner", sets: [3, 3], reps: [8, 12],
+    primaryMuscle: "quads", difficulty: "beginner", image: "", gif: "", sets: [3, 3], reps: [8, 12],
     timeBased: false, restSeconds: 60, rpe: 7, substitutions: [],
     safetyNotes: "s", jointRiskNotes: "j", regression: "r", ...overrides,
   };

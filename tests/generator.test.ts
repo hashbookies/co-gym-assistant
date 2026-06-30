@@ -39,6 +39,15 @@ describe("generator: source integrity", () => {
       for (const sub of p.substitutions) expect(POOL_SLUGS.has(sub)).toBe(true);
     }
   });
+
+  it("every prescription exposes slug + media URLs for workout cards", () => {
+    const w = generateWorkout(POOL, S, { dayIndex: 0, seed: "user" });
+    for (const p of allRx(w)) {
+      expect(typeof p.slug).toBe("string");
+      expect(p.image).toMatch(/^\/images\//);
+      expect(p.gif).toMatch(/^\/videos\//);
+    }
+  });
 });
 
 describe("generator: intensity rules", () => {

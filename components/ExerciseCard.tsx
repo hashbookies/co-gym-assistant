@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { ExercisePrescription } from "@/lib/types";
+import ExerciseMedia from "@/components/ExerciseMedia";
 
 function repsLabel(p: ExercisePrescription): string {
   const [a, b] = p.reps;
@@ -31,6 +33,15 @@ export default function ExerciseCard({ p, hint }: { p: ExercisePrescription; hin
         <span className="pill capitalize">{p.movementPattern.replace(/-/g, " ")}</span>
         <span className="pill capitalize">{p.primaryMuscle}</span>
       </div>
+
+      {(p.image || p.gif) && (
+        <div className="mt-3">
+          <ExerciseMedia gif={p.gif || undefined} image={p.image || undefined} alt={`${p.displayName} demo`} mode="lazyDemo" />
+        </div>
+      )}
+      <Link href={`/library/${p.slug}`} className="mt-2 inline-block text-xs font-semibold text-brand-700">
+        Full instructions →
+      </Link>
 
       <dl className="mt-3 grid grid-cols-4 gap-2 text-center">
         <Stat label="Sets" value={setsLabel(p)} />
