@@ -131,34 +131,69 @@ export interface Workout {
 
 // ---------------- Settings / logs / readiness ----------------
 
+export type WeightUnit = "lb" | "kg";
+
 export interface Settings {
   equipment: { dumbbell: boolean; band: boolean; bodyweight: boolean };
   trainingDays: number;
   durationMin: number;
   level: Difficulty;
+  weightUnit: WeightUnit;
   hasDoorAnchor: boolean;
   hasBench: boolean;
   hasPullupBar: boolean;
 }
 
 /** How an exercise felt this session — drives progression next time. */
-export type SessionFeel = "easy" | "hard" | "missed";
+export type SessionFeel = "easy" | "good" | "hard" | "missed";
 
-export interface ExercisePerformance {
-  slug: string;
-  feel: SessionFeel;     // easy = all reps comfortably; hard = all reps but tough; missed = didn't finish / form broke
-  weight?: number;       // optional load logged by the user
+/** One performed set of an exercise (Phase 3 per-set logging). */
+export interface ActualSet {
+  setNumber: number;
+  reps: number;
+  weight: number;
+  weightUnit: WeightUnit;
+  rpe: number;
+  completed: boolean;
+  notes?: string;
 }
 
+/** Explicit logging state — nothing counts as done until the user acts. */
+export type ExerciseStatus = "not_started" | "completed" | "modified" | "skipped";
+
+/** Per-exercise log within a workout. */
+export interface ExerciseLog {
+  exerciseSlug: string;
+  exerciseName: string;
+  status: ExerciseStatus;
+  plannedSets: number;
+  plannedRepRange: [number, number];
+  plannedRestSeconds: number;
+  plannedRpeTarget: number;
+  actualSets: ActualSet[];
+  sessionFeel: SessionFeel;
+  modified: boolean;
+  modificationNote?: string;
+}
+
+export const CURRENT_LOG_VERSION = 2;
+
 export interface WorkoutLog {
+  version: number; // CURRENT_LOG_VERSION; older logs are migrated on read
   id: string;
   workoutId: string;
   title: string;
   mode: WorkoutMode;
   date: string; // ISO
-  completedSlugs: string[];
-  performances: ExercisePerformance[];
+  exercises: ExerciseLog[];
   note?: string;
+}
+
+/** @deprecated v1 per-exercise shape — retained ONLY for migration of old logs. */
+export interface LegacyExercisePerformance {
+  slug: string;
+  feel: "easy" | "hard" | "missed";
+  weight?: number;
 }
 
 export type ProgressionAction =

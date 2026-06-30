@@ -5,43 +5,53 @@ import Link from "next/link";
 import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import WorkoutView from "@/components/WorkoutView";
-import { loadCurrentWorkout, saveCurrentWorkout, addLog, lastPerformance, loadReadiness } from "@/lib/storage";
+import {
+  loadCurrentWorkout, saveCurrentWorkout, addLog, lastExerciseLog, lastWeight,
+  loadReadiness, loadSettings,
+} from "@/lib/storage";
 import { getPoolExercise } from "@/lib/data/pool";
 import { suggestProgression } from "@/lib/progression";
-import type { Workout, ExercisePerformance } from "@/lib/types";
+import { CURRENT_LOG_VERSION } from "@/lib/types";
+import type { Workout, ExerciseLog, WeightUnit } from "@/lib/types";
 
 export default function TodayPage() {
   const [workout, setWorkout] = useState<Workout | null>(null);
   const [hints, setHints] = useState<Record<string, string>>({});
+  const [lastWeights, setLastWeights] = useState<Record<string, number | undefined>>({});
+  const [weightUnit, setWeightUnit] = useState<WeightUnit>("lb");
   const [ready, setReady] = useState(false);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
     const w = loadCurrentWorkout();
     setWorkout(w);
+    setWeightUnit(loadSettings().weightUnit);
     if (w) {
       const readiness = loadReadiness();
       const h: Record<string, string> = {};
+      const lw: Record<string, number | undefined> = {};
       for (const m of w.main) {
         const ex = getPoolExercise(m.slug);
         if (!ex) continue;
-        const sug = suggestProgression(ex, lastPerformance(m.slug), readiness);
+        const sug = suggestProgression(ex, lastExerciseLog(m.slug), readiness);
         if (sug.action !== "establish") h[m.slug] = sug.text;
+        lw[m.slug] = lastWeight(m.slug);
       }
       setHints(h);
+      setLastWeights(lw);
     }
     setReady(true);
   }, []);
 
-  function complete(w: Workout, performances: ExercisePerformance[]) {
+  function complete(w: Workout, exercises: ExerciseLog[]) {
     addLog({
+      version: CURRENT_LOG_VERSION,
       id: `log_${Date.now()}`,
       workoutId: w.id,
       title: w.title,
       mode: w.mode,
       date: new Date().toISOString(),
-      completedSlugs: performances.map((p) => p.slug),
-      performances,
+      exercises,
     });
     saveCurrentWorkout(null);
     setDone(true);
@@ -62,7 +72,13 @@ export default function TodayPage() {
         </div>
       ) : workout ? (
         <>
-          <WorkoutView workout={workout} hints={hints} onComplete={complete} />
+          <WorkoutView
+            workout={workout}
+            hints={hints}
+            weightUnit={weightUnit}
+            lastWeightBySlug={lastWeights}
+            onComplete={complete}
+          />
           <Disclaimer />
         </>
       ) : (

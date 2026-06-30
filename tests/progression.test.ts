@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { suggestProgression, canProgress } from "@/lib/progression";
-import type { PoolExercise, ExercisePerformance, ReadinessResult, Equipment } from "@/lib/types";
+import type { PoolExercise, ExerciseLog, ActualSet, ReadinessResult, Equipment, SessionFeel } from "@/lib/types";
 
 function ex(equipment: Equipment, substitutions: string[] = []): PoolExercise {
   return {
@@ -10,14 +10,26 @@ function ex(equipment: Equipment, substitutions: string[] = []): PoolExercise {
     beginnerSuitable: true, difficulty: "beginner", difficultyConfidence: "manual-confirmed",
     homeSuitable: true, requiresAnchor: false, requiresBench: false, requiresPullupBar: false,
     requiresSpecialEquipment: false, requiresDoorSetup: false, canonicalExercise: true,
-    duplicateGroup: null, repRange: [8, 12], setRange: [2, 3], restSeconds: 60, rpeTarget: 7,
+    duplicateGroup: null, repRange: [8, 12], setRange: [3, 3], restSeconds: 60, rpeTarget: 7,
     timeBased: false, progression: "p", regression: "r", substitutions, lowEnergyFriendly: false,
     jointRiskNotes: "j", safetyNotes: "s", whySelected: "w",
   };
 }
-const perf = (feel: ExercisePerformance["feel"]): ExercisePerformance => ({ slug: "x", feel });
+const set = (reps: number, rpe = 7, completed = true): ActualSet =>
+  ({ setNumber: 1, reps, weight: 20, weightUnit: "lb", rpe, completed });
+function log(
+  actualSets: ActualSet[],
+  sessionFeel: SessionFeel = "good",
+  status: ExerciseLog["status"] = "completed",
+): ExerciseLog {
+  return {
+    exerciseSlug: "x", exerciseName: "X", status, plannedSets: actualSets.length, plannedRepRange: [8, 12],
+    plannedRestSeconds: 60, plannedRpeTarget: 7, actualSets, sessionFeel, modified: status === "modified",
+  };
+}
 const readiness = (rec: ReadinessResult["recommendation"]): ReadinessResult =>
   ({ recommendation: rec, redFlags: [], reasons: [], date: new Date().toISOString() });
+const topSets = [set(12), set(12), set(12)];
 
 describe("canProgress gate", () => {
   it("allows progression only on normal readiness", () => {
@@ -28,44 +40,63 @@ describe("canProgress gate", () => {
   });
 });
 
-describe("suggestProgression", () => {
+describe("suggestProgression (per-set)", () => {
   it("establishes a baseline with no history", () => {
     expect(suggestProgression(ex("dumbbell"), undefined).action).toBe("establish");
   });
 
-  it("holds when readiness is not normal, even after an easy session", () => {
-    expect(suggestProgression(ex("dumbbell"), perf("easy"), readiness("low-energy")).action).toBe("hold");
-    expect(suggestProgression(ex("dumbbell"), perf("easy"), readiness("rest")).action).toBe("hold");
+  it("holds when readiness is not normal, even after a top-range session", () => {
+    expect(suggestProgression(ex("dumbbell"), log(topSets), readiness("low-energy")).action).toBe("hold");
+    expect(suggestProgression(ex("dumbbell"), log(topSets), readiness("rest")).action).toBe("hold");
   });
 
-  it("holds after a missed session (incomplete reps / form)", () => {
-    expect(suggestProgression(ex("dumbbell"), perf("missed"), readiness("normal")).action).toBe("hold");
+  it("holds after a missed set", () => {
+    const sets = [set(12), set(8, 7, false), set(12)];
+    expect(suggestProgression(ex("dumbbell"), log(sets), readiness("normal")).action).toBe("hold");
   });
 
-  it("adds reps after a hard-but-complete session", () => {
-    expect(suggestProgression(ex("dumbbell"), perf("hard"), readiness("normal")).action).toBe("add-reps");
+  it("holds after a skipped or not-started exercise", () => {
+    expect(suggestProgression(ex("dumbbell"), log([], "missed", "skipped"), readiness("normal")).action).toBe("hold");
+    expect(suggestProgression(ex("dumbbell"), log([], "good", "not_started"), readiness("normal")).action).toBe("hold");
   });
 
-  it("adds weight after an easy loaded session (dumbbell or band)", () => {
-    expect(suggestProgression(ex("dumbbell"), perf("easy"), readiness("normal")).action).toBe("add-weight");
-    expect(suggestProgression(ex("band"), perf("easy"), readiness("normal")).action).toBe("add-weight");
+  it("holds after a high-RPE session", () => {
+    const sets = [set(12, 9), set(12, 9), set(12, 9)];
+    expect(suggestProgression(ex("dumbbell"), log(sets), readiness("normal")).action).toBe("hold");
   });
 
-  it("progresses bodyweight to a harder variation when one exists", () => {
-    const s = suggestProgression(ex("bodyweight", ["diamond-push-up"]), perf("easy"), readiness("normal"));
-    expect(s.action).toBe("harder-variation");
-    expect(s.text).toContain("diamond push up");
+  it("suggests adding reps when below the top of the range", () => {
+    const sets = [set(9), set(9), set(8)];
+    const s = suggestProgression(ex("dumbbell"), log(sets), readiness("normal"));
+    expect(s.action).toBe("add-reps");
   });
 
-  it("adds a set for bodyweight with no harder variation", () => {
-    expect(suggestProgression(ex("bodyweight", []), perf("easy"), readiness("normal")).action).toBe("add-set");
+  it("suggests increasing weight after a top-of-range loaded session", () => {
+    expect(suggestProgression(ex("dumbbell"), log(topSets), readiness("normal")).action).toBe("add-weight");
+    expect(suggestProgression(ex("band"), log(topSets), readiness("normal")).action).toBe("add-weight");
   });
 
-  it("never suggests progression actions after a non-normal day", () => {
-    const easy = perf("easy");
-    for (const rec of ["low-energy", "rest"] as const) {
-      const s = suggestProgression(ex("dumbbell"), easy, readiness(rec));
-      expect(["hold"]).toContain(s.action);
-    }
+  it("bodyweight progression never suggests adding weight", () => {
+    const withSubs = suggestProgression(ex("bodyweight", ["diamond-push-up"]), log(topSets), readiness("normal"));
+    expect(withSubs.action).not.toBe("add-weight");
+    expect(withSubs.action).toBe("harder-variation");
+
+    const noSubs = suggestProgression(ex("bodyweight", []), log(topSets), readiness("normal"));
+    expect(noSubs.action).not.toBe("add-weight");
+    expect(noSubs.action).toBe("add-set");
+  });
+});
+
+describe("suggestProgression (sparse / migrated — sessionFeel only)", () => {
+  const empty = (feel: SessionFeel) => log([], feel);
+  it("missed -> hold", () => {
+    expect(suggestProgression(ex("dumbbell"), empty("missed"), readiness("normal")).action).toBe("hold");
+  });
+  it("hard -> add reps", () => {
+    expect(suggestProgression(ex("dumbbell"), empty("hard"), readiness("normal")).action).toBe("add-reps");
+  });
+  it("easy + loaded -> add weight; easy + bodyweight -> not weight", () => {
+    expect(suggestProgression(ex("dumbbell"), empty("easy"), readiness("normal")).action).toBe("add-weight");
+    expect(suggestProgression(ex("bodyweight", []), empty("easy"), readiness("normal")).action).not.toBe("add-weight");
   });
 });

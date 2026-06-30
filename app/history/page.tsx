@@ -36,7 +36,7 @@ export default function HistoryPage() {
               </div>
               <p className="mt-0.5 text-xs text-slate-500">
                 {new Date(l.date).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
-                {" · "}{l.completedSlugs.length} movements
+                {" · "}{l.exercises.length} movements
               </p>
             </li>
           ))}

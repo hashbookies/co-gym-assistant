@@ -1,61 +1,108 @@
-// Pure progressive-overload logic. Decides the next-session suggestion from the
-// last performance + current readiness. Progress ONLY when the last session was
-// completed well AND readiness is clear — never push after red/caution days.
+// Pure progressive-overload logic (Phase 3). Decides the next-session
+// suggestion from the last per-set ExerciseLog + current readiness.
+//
+// Progress ONLY when the last session was completed well AND readiness is clear.
+// Loaded lifts (dumbbell/band): reps first, then a SMALL weight bump once the
+// top of the rep range is reached. Bodyweight: reps / tempo / range / harder
+// variation / extra set — never "add weight".
 
 import type {
-  PoolExercise, ExercisePerformance, ProgressionSuggestion, ReadinessResult,
+  PoolExercise, ExerciseLog, ProgressionSuggestion, ReadinessResult,
 } from "@/lib/types";
 
-/**
- * May the user progress at all today? False after any non-normal readiness
- * (nausea, dizziness, poor sleep, severe soreness, dehydration, under-fueling,
- * injection-day fatigue all route readiness away from "normal").
- */
+const HIGH_RPE = 9; // at/above this last time => too hard to progress
+
 export function canProgress(readiness?: ReadinessResult | null): boolean {
   return !readiness || readiness.recommendation === "normal";
 }
 
-/**
- * Suggest the next step for one exercise.
- * Order of progression (CLAUDE.md): add reps -> add weight -> add set /
- * harder variation. Holds when reps weren't completed, form broke, or readiness
- * isn't clear.
- */
+const isLoaded = (ex: PoolExercise) => ex.equipment === "dumbbell" || ex.equipment === "band";
+
+function loadedWeightSuggestion(ex: PoolExercise): ProgressionSuggestion {
+  const how = ex.equipment === "dumbbell"
+    ? "step up to the next dumbbell"
+    : "use a stronger band (or shorten it)";
+  return {
+    action: "add-weight",
+    text: `All sets hit ${ex.repRange[1]} reps — ${how} and drop back toward ${ex.repRange[0]} reps. Small jump only.`,
+  };
+}
+
+function bodyweightProgressSuggestion(ex: PoolExercise): ProgressionSuggestion {
+  if (ex.substitutions.length > 0) {
+    return {
+      action: "harder-variation",
+      text: `Top of the range reached — progress to a harder variation (e.g. ${ex.substitutions[0].replace(/-/g, " ")}), or add a set / slow the tempo.`,
+    };
+  }
+  return {
+    action: "add-set",
+    text: "Top of the range reached — add a set, slow the tempo (3s lowering), or increase range of motion.",
+  };
+}
+
+function addRepsSuggestion(ex: PoolExercise, sameWeight: boolean): ProgressionSuggestion {
+  return {
+    action: "add-reps",
+    text: `${sameWeight ? "Keep the same weight and add" : "Add"} 1–2 reps toward ${ex.repRange[1]} before progressing further.`,
+  };
+}
+
+/** Suggest the next step for one exercise from its last logged session. */
 export function suggestProgression(
   exercise: PoolExercise,
-  lastPerf: ExercisePerformance | undefined,
+  last: ExerciseLog | undefined,
   readiness?: ReadinessResult | null,
 ): ProgressionSuggestion {
-  if (!lastPerf) {
-    return { action: "establish", text: "First time — log how it felt to start tracking progress." };
+  if (!last) {
+    return { action: "establish", text: "First time — log your sets to start tracking progress." };
   }
 
-  // Readiness gate: never progress on a non-normal day.
+  // Readiness gate: never push on a non-normal day.
   if (!canProgress(readiness)) {
-    return { action: "hold", text: "Hold today — your readiness check suggests taking it easier. Keep the same target." };
+    return { action: "hold", text: "Hold today — your readiness check suggests taking it easier. Keep the same weight and reps." };
   }
 
-  // Missed reps or form breakdown -> repeat the same target.
-  if (lastPerf.feel === "missed") {
-    return { action: "hold", text: "Repeat the same target and focus on completing all reps with good form. Regress if it stays hard." };
+  // Skipped / never-logged sessions carry no completion signal — hold.
+  if (last.status === "skipped" || last.status === "not_started") {
+    return { action: "hold", text: "Last session was skipped — repeat the same target when you're ready, with good form." };
   }
 
-  // All reps but tough -> add reps within the range before adding load.
-  if (lastPerf.feel === "hard") {
-    return { action: "add-reps", text: `Add 1–2 reps (toward ${exercise.repRange[1]}) before adding load.` };
+  const sets = last.actualSets;
+  const top = exercise.repRange[1];
+
+  // -------- Rich path: we have per-set data --------
+  if (sets.length > 0) {
+    const anyMissed = sets.some((s) => !s.completed) || last.sessionFeel === "missed";
+    if (anyMissed) {
+      return { action: "hold", text: "A set was missed last time — repeat the same weight and aim to complete every set with good form." };
+    }
+
+    const completed = sets.filter((s) => s.completed);
+    const maxRpe = completed.reduce((m, s) => Math.max(m, s.rpe || 0), 0);
+    if (maxRpe >= HIGH_RPE) {
+      return { action: "hold", text: "RPE was very high last time — keep the same weight and reps until it feels more controlled." };
+    }
+
+    const allHitTop = completed.length === sets.length && completed.every((s) => s.reps >= top);
+    if (allHitTop) {
+      return isLoaded(exercise) ? loadedWeightSuggestion(exercise) : bodyweightProgressSuggestion(exercise);
+    }
+
+    // Completed but below the top of the range -> build reps at the same weight.
+    return addRepsSuggestion(exercise, /* sameWeight */ true);
   }
 
-  // Comfortable + all reps -> progress load/difficulty.
-  if (exercise.equipment === "dumbbell") {
-    return { action: "add-weight", text: "Felt easy — step up to the next dumbbell and drop back toward the lower rep range." };
+  // -------- Sparse path: migrated / quick-logged, only sessionFeel --------
+  switch (last.sessionFeel) {
+    case "missed":
+      return { action: "hold", text: "Last session was incomplete — repeat the same target and focus on full reps with good form." };
+    case "hard":
+      return addRepsSuggestion(exercise, true);
+    case "good":
+      return addRepsSuggestion(exercise, false);
+    case "easy":
+    default:
+      return isLoaded(exercise) ? loadedWeightSuggestion(exercise) : bodyweightProgressSuggestion(exercise);
   }
-  if (exercise.equipment === "band") {
-    return { action: "add-weight", text: "Felt easy — use a stronger band (or shorten it) for more tension." };
-  }
-  // Bodyweight: prefer a harder variation if one is offered, else add a set / slow tempo.
-  if (exercise.substitutions.length > 0) {
-    const harder = exercise.substitutions[0].replace(/-/g, " ");
-    return { action: "harder-variation", text: `Felt easy — progress to a harder variation (e.g. ${harder}) or add a set.` };
-  }
-  return { action: "add-set", text: "Felt easy — add one set, or slow the tempo (3s lowering)." };
 }

@@ -70,6 +70,19 @@ export default function SettingsPage() {
             ))}
           </div>
         </div>
+        <div>
+          <p className="mb-1.5 text-sm font-semibold text-slate-700">Default weight unit</p>
+          <div className="grid grid-cols-2 gap-2">
+            {(["lb", "kg"] as const).map((u) => (
+              <button key={u} onClick={() => update({ weightUnit: u })}
+                className={`rounded-lg px-2 py-2 text-xs font-semibold uppercase ${
+                  s.weightUnit === u ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600"
+                }`}>
+                {u}
+              </button>
+            ))}
+          </div>
+        </div>
       </section>
 
       <button className="btn-primary w-full" onClick={save}>{saved ? "Saved ✓" : "Save settings"}</button>

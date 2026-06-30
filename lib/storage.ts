@@ -1,6 +1,8 @@
 // localStorage persistence for MVP (no backend yet). All access is SSR-guarded.
 
-import type { Settings, Workout, WorkoutLog, ReadinessResult, ExercisePerformance } from "@/lib/types";
+import type { Settings, Workout, WorkoutLog, ReadinessResult, ExerciseLog } from "@/lib/types";
+import { CURRENT_LOG_VERSION } from "@/lib/types";
+import { migrateLogs, lastExerciseLogFor, lastWeightFor } from "@/lib/logs";
 
 const KEYS = {
   settings: "cogym.settings",
@@ -14,6 +16,7 @@ export const DEFAULT_SETTINGS: Settings = {
   trainingDays: 3,
   durationMin: 30,
   level: "beginner",
+  weightUnit: "lb",
   hasDoorAnchor: false,
   hasBench: false,
   hasPullupBar: false,
@@ -46,21 +49,24 @@ export const saveSettings = (s: Settings): void => write(KEYS.settings, s);
 export const loadCurrentWorkout = (): Workout | null => read<Workout | null>(KEYS.currentWorkout, null);
 export const saveCurrentWorkout = (w: Workout | null): void => write(KEYS.currentWorkout, w);
 
-// Logs
-export const loadLogs = (): WorkoutLog[] => read<WorkoutLog[]>(KEYS.logs, []);
+// Logs — read through the migrator so old shapes never crash the app.
+export function loadLogs(): WorkoutLog[] {
+  return migrateLogs(read<unknown>(KEYS.logs, []));
+}
 export function addLog(log: WorkoutLog): WorkoutLog[] {
-  const logs = [log, ...loadLogs()];
+  const logs = [{ ...log, version: CURRENT_LOG_VERSION }, ...loadLogs()];
   write(KEYS.logs, logs);
   return logs;
 }
 
-/** Most recent recorded performance for a given exercise slug, if any. */
-export function lastPerformance(slug: string): ExercisePerformance | undefined {
-  for (const log of loadLogs()) {
-    const p = log.performances?.find((x) => x.slug === slug);
-    if (p) return p;
-  }
-  return undefined;
+/** Most recent per-exercise log for a slug, if any. */
+export function lastExerciseLog(slug: string): ExerciseLog | undefined {
+  return lastExerciseLogFor(loadLogs(), slug);
+}
+
+/** Heaviest completed weight last logged for a slug (for default pre-fill). */
+export function lastWeight(slug: string): number | undefined {
+  return lastWeightFor(loadLogs(), slug);
 }
 
 // Last readiness result
