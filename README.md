@@ -55,6 +55,29 @@ is byte-for-byte identical to this repo's `videos/0025-EIeI8Vf.gif`. The assets 
 
 ---
 
+## 🗃️ Local Data and Media
+
+What the Co-Gym Assistant app needs locally, and what is / isn't tracked in git:
+
+**Tracked (in git, used by the app):**
+- `data/mvp-pool.json` — the curated workout-generator pool.
+- `data/exercises.tagged.json` — the full exercise library.
+- PWA icons in `public/icons/`.
+
+**Not tracked (intentionally ignored):**
+- `data/exercises.json` — the large (~8.3 MB) raw dataset. A full from-raw pipeline
+  rebuild requires this file to exist locally; the app and `npm run build:pool`
+  do **not** need it (they use `exercises.tagged.json`).
+- `data/exercises.normalized.json`, `data/exercises.final.json` — regenerable pipeline intermediates.
+- `images/` and `videos/` — source exercise media folders.
+- `public/images/` and `public/videos/` — generated local copies of that media.
+
+**Preparing media locally:**
+- `public/images/` and `public/videos/` are created by copying from the source
+  `images/`/`videos/` folders. Run `npm run sync:media` to populate them.
+
+---
+
 ## 📋 Table of Contents
 
 - [Data Source & Attribution](#-data-source--attribution)

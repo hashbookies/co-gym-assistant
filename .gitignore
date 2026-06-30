@@ -33,3 +33,7 @@ coverage/
 /data/exercises.json
 /data/exercises.normalized.json
 /data/exercises.final.json
+
+# Legacy prototype files — superseded by the Next.js app, kept locally but not tracked.
+/index.html
+/setup.html
