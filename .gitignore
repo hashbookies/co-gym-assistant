@@ -1,0 +1,35 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+*.zip
+
+# Next.js / Node
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.vercel
+npm-debug.log*
+
+# Env / local / cache
+.env
+.env.*
+*.local
+coverage/
+.cache/
+
+# Large exercise media — kept OUT of git (138MB). Sourced from the dataset and
+# synced into public via scripts/sync-media.js.
+/images/
+/videos/
+/public/images/
+/public/videos/
+
+# Raw + intermediate pipeline data (large / regenerable). The app and
+# `npm run build:pool` only need exercises.tagged.json + mvp-pool.json, which
+# ARE tracked. exercises.json is the 8.3MB raw source dataset.
+/data/exercises.json
+/data/exercises.normalized.json
+/data/exercises.final.json

@@ -1,0 +1,36 @@
+{
+  "name": "co-gym-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal home-workout assistant — muscle-preserving home training (dumbbell/band/bodyweight only).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:pool": "node scripts/build-mvp-pool.js",
+    "sync:media": "node scripts/sync-media.js",
+    "gen:icons": "node scripts/gen-icons.js"
+  },
+  "dependencies": {
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.19",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.3",
+    "vitest": "^2.1.9"
+  }
+}

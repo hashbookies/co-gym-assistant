@@ -1,0 +1,5607 @@
+[
+  {
+    "slug": "dumbbell-goblet-squat",
+    "displayName": "Dumbbell Goblet Squat",
+    "sourceId": "1760",
+    "equipment": "dumbbell",
+    "category": "Squat",
+    "movementPattern": "squat",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bodyweight squat to a chair (sit-to-stand).",
+    "substitutions": [
+      "dumbbell-squat",
+      "split-squats"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Keep knees tracking over toes; do not let them cave inward.",
+    "safetyNotes": "Control depth and keep knees tracking over the toes; brace your core.",
+    "whySelected": "Best-loaded home squat; goblet position keeps the torso upright and is forgiving for beginners.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-squat",
+    "displayName": "Dumbbell Squat",
+    "sourceId": "0413",
+    "equipment": "dumbbell",
+    "category": "Squat",
+    "movementPattern": "squat",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "reduce depth or hold lighter dumbbells.",
+    "substitutions": [
+      "dumbbell-goblet-squat"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Knee and lower-back focus — control depth; reduce range if the knees ache.",
+    "safetyNotes": "Control depth and keep knees tracking over the toes; brace your core.",
+    "whySelected": "Dumbbells at sides allow heavier loading than goblet once stronger.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-supported-squat",
+    "displayName": "Dumbbell Supported Squat",
+    "sourceId": "2803",
+    "equipment": "dumbbell",
+    "category": "Squat",
+    "movementPattern": "squat",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "hold a doorframe/chair for more support.",
+    "substitutions": [
+      "dumbbell-goblet-squat"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Knee and lower-back focus — control depth; reduce range if the knees ache.",
+    "safetyNotes": "Control depth and keep knees tracking over the toes; brace your core.",
+    "whySelected": "Beginner entry point; external support reduces balance demand on low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "split-squats",
+    "displayName": "Split Squats",
+    "sourceId": "2368",
+    "equipment": "bodyweight",
+    "category": "Squat",
+    "movementPattern": "squat",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "shorten the stance and hold support.",
+    "substitutions": [
+      "dumbbell-lunge"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Front knee stays behind toes-ish; control the descent.",
+    "safetyNotes": "Control depth and keep knees tracking over the toes; brace your core.",
+    "whySelected": "Unilateral strength + balance with no equipment; bridges to lunges.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-squat",
+    "displayName": "Band Squat",
+    "sourceId": "1004",
+    "equipment": "band",
+    "category": "Squat",
+    "movementPattern": "squat",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "use a lighter band or partial range.",
+    "substitutions": [
+      "dumbbell-goblet-squat"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Knee and lower-back focus — control depth; reduce range if the knees ache.",
+    "safetyNotes": "Control depth and keep knees tracking over the toes; brace your core.",
+    "whySelected": "Band-only squat for travel/no-dumbbell days; adds resistance at the top.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-romanian-deadlift",
+    "displayName": "Dumbbell Romanian Deadlift",
+    "sourceId": "1459",
+    "equipment": "dumbbell",
+    "category": "Hinge",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings",
+      "lower back"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "reduce range (stop mid-shin) and load.",
+    "substitutions": [
+      "dumbbell-stiff-leg-deadlift",
+      "low-glute-bridge-on-floor"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Hinge at the hips with a flat back; do not round the lower spine.",
+    "safetyNotes": "Hinge at the hips with a neutral spine; brace and don't round the lower back.",
+    "whySelected": "Primary posterior-chain builder (hamstrings/glutes); the key hinge pattern.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-stiff-leg-deadlift",
+    "displayName": "Dumbbell Stiff Leg Deadlift",
+    "sourceId": "0432",
+    "equipment": "dumbbell",
+    "category": "Hinge",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings",
+      "lower back"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "soften knees and shorten range.",
+    "substitutions": [
+      "dumbbell-romanian-deadlift"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Flat back throughout; load stays close to the legs.",
+    "safetyNotes": "Hinge at the hips with a neutral spine; brace and don't round the lower back.",
+    "whySelected": "Hamstring-biased hinge variation; canonical over near-duplicates.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-deadlift",
+    "displayName": "Dumbbell Deadlift",
+    "sourceId": "0300",
+    "equipment": "dumbbell",
+    "category": "Hinge",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings",
+      "lower back"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "elevate the dumbbells on a low surface to reduce range.",
+    "substitutions": [
+      "dumbbell-romanian-deadlift"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Brace the core; hips and shoulders rise together.",
+    "safetyNotes": "Hinge at the hips with a neutral spine; brace and don't round the lower back.",
+    "whySelected": "Full hip hinge from the floor; complements RDL with more quad/glute.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-straight-leg-deadlift",
+    "displayName": "Band Straight Leg Deadlift",
+    "sourceId": "1010",
+    "equipment": "band",
+    "category": "Hinge",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "manual-curated",
+    "primaryMuscle": "spine",
+    "secondaryMuscles": [
+      "hamstrings",
+      "glutes"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter band, partial range.",
+    "substitutions": [
+      "dumbbell-romanian-deadlift",
+      "low-glute-bridge-on-floor"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lower-back focus — keep it neutral; stop if you feel lumbar strain.",
+    "safetyNotes": "Hinge at the hips with a neutral spine; brace and don't round the lower back.",
+    "whySelected": "Band hinge for low-load/low-energy or dumbbell-free sessions.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-lunge",
+    "displayName": "Dumbbell Lunge",
+    "sourceId": "0336",
+    "equipment": "dumbbell",
+    "category": "Lunge",
+    "movementPattern": "lunge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bodyweight static lunge holding support.",
+    "substitutions": [
+      "dumbbell-rear-lunge",
+      "split-squats"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Step length controls knee stress; avoid knee collapsing inward.",
+    "safetyNotes": "Lower under control and keep the front knee tracking over the foot.",
+    "whySelected": "Loaded unilateral leg work; strong carryover to daily movement.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-rear-lunge",
+    "displayName": "Dumbbell Rear Lunge",
+    "sourceId": "0381",
+    "equipment": "dumbbell",
+    "category": "Lunge",
+    "movementPattern": "lunge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bodyweight reverse lunge.",
+    "substitutions": [
+      "dumbbell-lunge"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Reverse step is gentler on the front knee than forward lunges.",
+    "safetyNotes": "Lower under control and keep the front knee tracking over the foot.",
+    "whySelected": "Knee-friendlier lunge variation; good default for beginners with knee caution.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "walking-lunge",
+    "displayName": "Walking Lunge",
+    "sourceId": "1460",
+    "equipment": "bodyweight",
+    "category": "Lunge",
+    "movementPattern": "lunge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "stationary lunge in place.",
+    "substitutions": [
+      "forward-lunge-male"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Knee focus — keep the front knee stable; reverse lunges are gentler on the knee.",
+    "safetyNotes": "Lower under control and keep the front knee tracking over the foot.",
+    "whySelected": "Bodyweight progression option; adds a light conditioning element.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "forward-lunge-male",
+    "displayName": "Forward Lunge",
+    "sourceId": "3470",
+    "equipment": "bodyweight",
+    "category": "Lunge",
+    "movementPattern": "lunge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "hold a wall/chair; reduce depth.",
+    "substitutions": [
+      "dumbbell-rear-lunge"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Knee focus — keep the front knee stable; reverse lunges are gentler on the knee.",
+    "safetyNotes": "Lower under control and keep the front knee tracking over the foot.",
+    "whySelected": "Bodyweight beginner lunge; usable on low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-contralateral-forward-lunge",
+    "displayName": "Dumbbell Contralateral Forward Lunge",
+    "sourceId": "3635",
+    "equipment": "dumbbell",
+    "category": "Lunge",
+    "movementPattern": "lunge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "quadriceps",
+      "hamstrings",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 90,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bodyweight version, shorter range.",
+    "substitutions": [
+      "dumbbell-lunge"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Opposite-side load adds a light anti-rotation core demand.",
+    "safetyNotes": "Lower under control and keep the front knee tracking over the foot.",
+    "whySelected": "Lunge + core integration; one loaded carry-over option.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "push-up",
+    "displayName": "Push-Up",
+    "sourceId": "0662",
+    "equipment": "bodyweight",
+    "category": "Horizontal push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "pectorals",
+    "secondaryMuscles": [
+      "triceps",
+      "deltoids",
+      "core"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "incline push-up (hands on a counter) or knees.",
+    "substitutions": [
+      "close-grip-push-up-on-knees",
+      "dumbbell-lying-hammer-press"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder/elbow focus — floor variations limit risky end-range.",
+    "safetyNotes": "Keep the shoulder blades set and lower under control; don't flare the elbows hard.",
+    "whySelected": "Foundational bodyweight horizontal push; scales endlessly.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "close-grip-push-up-on-knees",
+    "displayName": "Close-Grip Push-Up (Knees)",
+    "sourceId": "2398",
+    "equipment": "bodyweight",
+    "category": "Horizontal push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "chest",
+      "shoulders"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "incline against a wall.",
+    "substitutions": [
+      "push-up"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Shoulder/elbow focus — floor variations limit risky end-range.",
+    "safetyNotes": "Keep the shoulder blades set and lower under control; don't flare the elbows hard.",
+    "whySelected": "Beginner push regression with triceps emphasis; low-energy friendly.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "diamond-push-up",
+    "displayName": "Diamond Push-Up",
+    "sourceId": "0283",
+    "equipment": "bodyweight",
+    "category": "Horizontal push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "chest",
+      "shoulders"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "knees or wider hand position.",
+    "substitutions": [
+      "push-up"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder/elbow focus — floor variations limit risky end-range.",
+    "safetyNotes": "Keep the shoulder blades set and lower under control; don't flare the elbows hard.",
+    "whySelected": "Harder push progression emphasizing triceps/inner chest.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-lying-hammer-press",
+    "displayName": "Dumbbell Floor Press (Neutral Grip)",
+    "sourceId": "0340",
+    "equipment": "dumbbell",
+    "category": "Horizontal push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "pectorals",
+    "secondaryMuscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load; pause on the floor each rep.",
+    "substitutions": [
+      "push-up",
+      "dumbbell-fly"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Floor limits shoulder extension — shoulder-friendly pressing.",
+    "safetyNotes": "Performed lying on the floor; no bench needed.",
+    "whySelected": "Loaded horizontal press without a bench; shoulder-safe floor variant.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-fly",
+    "displayName": "Dumbbell Floor Fly",
+    "sourceId": "0308",
+    "equipment": "dumbbell",
+    "category": "Horizontal push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "pectorals",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "reduce load and range; keep a soft elbow bend.",
+    "substitutions": [
+      "dumbbell-lying-hammer-press"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder focus — the floor caps the range; don't over-stretch at the bottom.",
+    "safetyNotes": "Performed lying on the FLOOR (not a bench); keep elbows lightly bent throughout.",
+    "whySelected": "Chest isolation/stretch to complement pressing; floor version limits risky shoulder end-range.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-close-grip-push-up",
+    "displayName": "Band Close-Grip Push-Up",
+    "sourceId": "0975",
+    "equipment": "band",
+    "category": "Horizontal push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "chest",
+      "shoulders"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "perform without the band (plain push-up).",
+    "substitutions": [
+      "push-up"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder/elbow focus — floor variations limit risky end-range.",
+    "safetyNotes": "Keep the shoulder blades set and lower under control; don't flare the elbows hard.",
+    "whySelected": "Adds band tension to the push-up for a strength-day option without dumbbells.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-seated-shoulder-press",
+    "displayName": "Dumbbell Seated Shoulder Press",
+    "sourceId": "0405",
+    "equipment": "dumbbell",
+    "category": "Vertical push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "triceps",
+      "upper back"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "press one arm at a time or reduce load.",
+    "substitutions": [
+      "dumbbell-standing-overhead-press",
+      "band-shoulder-press"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Press slightly in front of the head; avoid forcing end-range overhead.",
+    "safetyNotes": "Use a normal chair with back support — no bench required.",
+    "whySelected": "Beginner overhead press with back support; the canonical seated press.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-standing-overhead-press",
+    "displayName": "Dumbbell Standing Overhead Press",
+    "sourceId": "0426",
+    "equipment": "dumbbell",
+    "category": "Vertical push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "triceps",
+      "upper back"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "seated press or lighter load.",
+    "substitutions": [
+      "dumbbell-seated-shoulder-press"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Brace the core so the lower back doesn't arch.",
+    "safetyNotes": "Keep ribs down and core braced; press without arching the lower back.",
+    "whySelected": "Standing press adds full-body bracing; main vertical push.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-arnold-press",
+    "displayName": "Dumbbell Arnold Press",
+    "sourceId": "2137",
+    "equipment": "dumbbell",
+    "category": "Vertical push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "triceps",
+      "upper chest"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": "dumbbell arnold press",
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "standard overhead press, lighter.",
+    "substitutions": [
+      "dumbbell-standing-overhead-press"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder focus — rotate smoothly; skip if it pinches the shoulder.",
+    "safetyNotes": "Use a stable chair with back support; no bench required. Rotate the wrists smoothly and keep ribs down.",
+    "whySelected": "Delt variation with more front-delt and rotation; canonical over its V.2 twin.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-shoulder-press",
+    "displayName": "Band Shoulder Press",
+    "sourceId": "0997",
+    "equipment": "band",
+    "category": "Vertical push",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "triceps",
+      "upper back"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter band; seated.",
+    "substitutions": [
+      "dumbbell-seated-shoulder-press"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Shoulder focus — don't force end-range overhead; stop on any pinch.",
+    "safetyNotes": "Keep ribs down and core braced; press without arching the lower back.",
+    "whySelected": "Band overhead press for low-load/low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-bent-over-row",
+    "displayName": "Dumbbell Bent Over Row",
+    "sourceId": "0293",
+    "equipment": "dumbbell",
+    "category": "Horizontal pull",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "upper back",
+    "secondaryMuscles": [
+      "biceps",
+      "forearms"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "support chest on thighs (more upright) and lighten.",
+    "substitutions": [
+      "dumbbell-one-arm-bent-over-row",
+      "resistance-band-seated-straight-back-row"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Flat back, hinge at hips; don't round the spine under load.",
+    "safetyNotes": "Keep a neutral spine and pull with the back — don't jerk the weight up.",
+    "whySelected": "Primary horizontal pull and the backbone of back work without a bar.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-one-arm-bent-over-row",
+    "displayName": "One-Arm Dumbbell Row (Free Standing)",
+    "sourceId": "0292",
+    "equipment": "dumbbell",
+    "category": "Horizontal pull",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "upper back",
+    "secondaryMuscles": [
+      "biceps",
+      "forearms"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "brace free hand on thigh/knee (not a bench), lighten.",
+    "substitutions": [
+      "dumbbell-bent-over-row"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Self-supported on your own leg — no bench. Keep spine neutral.",
+    "safetyNotes": "Performed self-supported; do NOT require a bench.",
+    "whySelected": "Heavier per-arm rowing with a free-standing brace; bench-free by design.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-palm-rotational-bent-over-row",
+    "displayName": "Dumbbell Palm Rotational Bent Over Row",
+    "sourceId": "1329",
+    "equipment": "dumbbell",
+    "category": "Horizontal pull",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "upper back",
+    "secondaryMuscles": [
+      "biceps",
+      "forearms"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighten and reduce range.",
+    "substitutions": [
+      "dumbbell-bent-over-row"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Lower-back/shoulder focus — hinge with a flat back, don't round.",
+    "safetyNotes": "Keep a neutral spine and pull with the back — don't jerk the weight up.",
+    "whySelected": "Row variation that adds biceps/grip variety to back days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "resistance-band-seated-straight-back-row",
+    "displayName": "Seated Band Row (Feet-Anchored)",
+    "sourceId": "3144",
+    "equipment": "band",
+    "category": "Horizontal pull",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "upper back",
+    "secondaryMuscles": [
+      "biceps",
+      "shoulders"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter band; reduce range.",
+    "substitutions": [
+      "dumbbell-bent-over-row",
+      "band-standing-rear-delt-row"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lower-back/shoulder focus — hinge with a flat back, don't round.",
+    "safetyNotes": "Sit on the floor and loop the band around your own feet — no door or wall anchor. Keep a tall, neutral spine.",
+    "whySelected": "Beginner, low-energy band row that anchors around your feet; replaces the door-dependent towel row.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-reverse-grip-row-female",
+    "displayName": "Dumbbell Reverse-Grip Row",
+    "sourceId": "2327",
+    "equipment": "dumbbell",
+    "category": "Horizontal pull",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "upper back",
+    "secondaryMuscles": [
+      "biceps",
+      "forearms"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "more upright torso; lighter load.",
+    "substitutions": [
+      "dumbbell-bent-over-row",
+      "dumbbell-one-arm-bent-over-row"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Lower-back/elbow focus — flat back; underhand grip adds biceps emphasis.",
+    "safetyNotes": "Keep a neutral spine and pull with the back — don't jerk the weight up.",
+    "whySelected": "Underhand bent-over row for lat/biceps variety; fully free-standing, no anchor needed.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-pullover",
+    "displayName": "Dumbbell Floor Pullover",
+    "sourceId": "0375",
+    "equipment": "dumbbell",
+    "category": "Lat/back alt",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "pectorals",
+    "secondaryMuscles": [
+      "latissimus dorsi",
+      "triceps"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "reduce range (stop at forehead level) and load.",
+    "substitutions": [
+      "dumbbell-bent-over-row"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Floor caps shoulder flexion. Skip if it causes any shoulder pinch.",
+    "safetyNotes": "Lying on the FLOOR (not a bench), which safely limits the overhead range.",
+    "whySelected": "Closest safe lat-stretch movement at home; floor version limits risky end-range.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-rear-delt-row-shoulder",
+    "displayName": "Dumbbell Rear Delt Row",
+    "sourceId": "0377",
+    "equipment": "dumbbell",
+    "category": "Lat/back alt",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "trapezius",
+      "rhomboids"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighten; pause at the top.",
+    "substitutions": [
+      "dumbbell-reverse-fly",
+      "band-standing-rear-delt-row"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder focus — keep it controlled; skip if it pinches.",
+    "safetyNotes": "Move with control and squeeze the shoulder blades; avoid shrugging or swinging.",
+    "whySelected": "Upper-back/rear-delt row for posture; offsets all the pressing volume.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-reverse-fly",
+    "displayName": "Dumbbell Reverse Fly",
+    "sourceId": "0383",
+    "equipment": "dumbbell",
+    "category": "Lat/back alt",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "trapezius",
+      "rhomboids"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bend over less / lighten; seated.",
+    "substitutions": [
+      "dumbbell-rear-delt-row-shoulder"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Lead with the elbows; avoid shrugging.",
+    "safetyNotes": "Move with control and squeeze the shoulder blades; avoid shrugging or swinging.",
+    "whySelected": "Rear-delt/scapular-retraction isolation — key for shoulder balance at home.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-standing-rear-delt-row",
+    "displayName": "Band Standing Rear Delt Row",
+    "sourceId": "1022",
+    "equipment": "band",
+    "category": "Lat/back alt",
+    "movementPattern": "pull",
+    "movementPatternConfidence": "medium",
+    "splitTag": "pull",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "trapezius",
+      "rhomboids",
+      "biceps"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      8,
+      12
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 75,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter band; slower tempo.",
+    "substitutions": [
+      "dumbbell-reverse-fly"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Shoulder focus — keep it controlled; skip if it pinches.",
+    "safetyNotes": "Band held in both hands at chest height (no anchor needed).",
+    "whySelected": "Anchor-free band back work; great low-energy upper-back option.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "front-plank-with-twist",
+    "displayName": "Front Plank",
+    "sourceId": "0464",
+    "equipment": "bodyweight",
+    "category": "Core anti-extension",
+    "movementPattern": "core-anti-extension",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "obliques",
+      "shoulders"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 6,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "plank from the knees.",
+    "substitutions": [
+      "power-point-plank",
+      "dead-bug"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lower-back focus — keep it flat, not arched.",
+    "safetyNotes": "Time-based hold (seconds). Keep hips level; don't let the lower back sag.",
+    "whySelected": "Foundational anti-extension core; teaches bracing for hinges/squats.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "power-point-plank",
+    "displayName": "Power Point Plank",
+    "sourceId": "3665",
+    "equipment": "bodyweight",
+    "category": "Core anti-extension",
+    "movementPattern": "core-anti-extension",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "shoulders",
+      "triceps",
+      "glutes"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 6,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "knees down; shorter holds.",
+    "substitutions": [
+      "front-plank-with-twist"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lower-back focus — keep it flat, not arched.",
+    "safetyNotes": "Time-based hold (seconds).",
+    "whySelected": "Plank variation for progression variety.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "side-bridge-v-2",
+    "displayName": "Side Plank",
+    "sourceId": "0705",
+    "equipment": "bodyweight",
+    "category": "Core anti-rotation",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "obliques",
+      "glutes"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 6,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "from the knees; shorter holds.",
+    "substitutions": [
+      "dead-bug"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lower-back focus — brace and avoid twisting under fatigue.",
+    "safetyNotes": "Time-based hold each side. Resists lateral flexion/rotation — best anti-rotation proxy without an anchor.",
+    "whySelected": "Trains rotary/lateral stability; stands in for pallof presses, which need a mounted anchor we don't assume.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dead-bug",
+    "displayName": "Dead Bug",
+    "sourceId": "0276",
+    "equipment": "bodyweight",
+    "category": "Core anti-rotation",
+    "movementPattern": "core-anti-extension",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "hip flexors",
+      "lower back"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      10,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "move only the legs (keep arms still).",
+    "substitutions": [
+      "side-bridge-v-2"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lower-back focus — brace and avoid twisting under fatigue.",
+    "safetyNotes": "Keep the lower back pressed to the floor; contralateral pattern resists trunk rotation.",
+    "whySelected": "Anti-rotation/rotary stability with contralateral limbs; very joint-friendly and doubles as anti-extension.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "crunch-floor",
+    "displayName": "Floor Crunch",
+    "sourceId": "0274",
+    "equipment": "bodyweight",
+    "category": "Core flexion",
+    "movementPattern": "core-flexion",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "hip flexors"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      10,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "smaller range; hands across chest.",
+    "substitutions": [
+      "cross-body-crunch"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Neck/lower-back focus — support the head; avoid yanking the neck.",
+    "safetyNotes": "Curl the trunk; don't yank the neck.",
+    "whySelected": "Basic trunk flexion; accessible beginner ab work.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "cross-body-crunch",
+    "displayName": "Cross Body Crunch",
+    "sourceId": "0262",
+    "equipment": "bodyweight",
+    "category": "Core flexion",
+    "movementPattern": "core-flexion",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "obliques"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      10,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "slower tempo; fewer reps.",
+    "substitutions": [
+      "crunch-floor"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Neck/lower-back focus — support the head; avoid yanking the neck.",
+    "safetyNotes": "Curl the trunk smoothly and don't pull on your neck.",
+    "whySelected": "Adds oblique emphasis to flexion work.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-lying-straight-leg-raise",
+    "displayName": "Lying Leg Raise (Band Optional)",
+    "sourceId": "1002",
+    "equipment": "band",
+    "category": "Core flexion",
+    "movementPattern": "core-flexion",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "hip flexors"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      10,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bent knees; remove band.",
+    "substitutions": [
+      "crunch-floor"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Keep the lower back down; if it arches, bend the knees.",
+    "safetyNotes": "Curl the trunk smoothly and don't pull on your neck.",
+    "whySelected": "Lower-ab focused flexion; band adds optional resistance.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "3-4-sit-up",
+    "displayName": "3/4 Sit-Up",
+    "sourceId": "0001",
+    "equipment": "bodyweight",
+    "category": "Core flexion",
+    "movementPattern": "core-flexion",
+    "movementPatternConfidence": "high",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "hip flexors",
+      "lower back"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      10,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "crunch instead of full sit-up.",
+    "substitutions": [
+      "crunch-floor"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Neck/lower-back focus — support the head; avoid yanking the neck.",
+    "safetyNotes": "Curl the trunk smoothly and don't pull on your neck.",
+    "whySelected": "Longer-range flexion progression beyond the crunch.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "low-glute-bridge-on-floor",
+    "displayName": "Glute Bridge",
+    "sourceId": "3013",
+    "equipment": "bodyweight",
+    "category": "Glutes",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings",
+      "core"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "smaller range; hold the top.",
+    "substitutions": [
+      "glute-bridge-march",
+      "resistance-band-hip-thrusts-on-knees-female"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when performed with control.",
+    "safetyNotes": "Drive through the heels and squeeze the glutes; keep ribs down.",
+    "whySelected": "Foundational glute activation; safe for everyone and great on low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "glute-bridge-march",
+    "displayName": "Glute Bridge March",
+    "sourceId": "3561",
+    "equipment": "bodyweight",
+    "category": "Glutes",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings",
+      "quadriceps"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "keep both feet down (static bridge).",
+    "substitutions": [
+      "low-glute-bridge-on-floor"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when performed with control.",
+    "safetyNotes": "Keep hips level as each foot lifts.",
+    "whySelected": "Adds single-leg stability and light core to the bridge.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "resistance-band-hip-thrusts-on-knees-female",
+    "displayName": "Banded Kneeling Hip Thrust",
+    "sourceId": "3236",
+    "equipment": "band",
+    "category": "Glutes",
+    "movementPattern": "hinge",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings",
+      "quadriceps"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "remove band.",
+    "substitutions": [
+      "low-glute-bridge-on-floor"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when performed with control.",
+    "safetyNotes": "Band around the hips (held/looped), no fixed anchor.",
+    "whySelected": "Direct glute work with band resistance; anchor-free.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "side-hip-abduction",
+    "displayName": "Side Hip Abduction",
+    "sourceId": "0710",
+    "equipment": "bodyweight",
+    "category": "Glutes",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abductors",
+    "secondaryMuscles": [
+      "glutes",
+      "quadriceps"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "smaller range; slower.",
+    "substitutions": [
+      "glute-bridge-march",
+      "low-glute-bridge-on-floor"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when performed with control.",
+    "safetyNotes": "Drive through the heels and squeeze the glutes; keep ribs down.",
+    "whySelected": "Glute-medius/abductor work for hip stability and knee tracking.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "bodyweight-standing-calf-raise",
+    "displayName": "Bodyweight Standing Calf Raise",
+    "sourceId": "1373",
+    "equipment": "bodyweight",
+    "category": "Calves",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "calves",
+    "secondaryMuscles": [
+      "ankles",
+      "feet"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      20
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 8,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "hold a wall; both feet.",
+    "substitutions": [
+      "dumbbell-standing-calf-raise"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Ankle focus — control the bottom stretch; avoid bouncing.",
+    "safetyNotes": "Use a full, controlled range; pause at the top and lower slowly.",
+    "whySelected": "Equipment-free calf work; high-rep friendly.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-standing-calf-raise",
+    "displayName": "Dumbbell Standing Calf Raise",
+    "sourceId": "0417",
+    "equipment": "dumbbell",
+    "category": "Calves",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "calves",
+    "secondaryMuscles": [
+      "ankles"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      20
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 8,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "bodyweight only.",
+    "substitutions": [
+      "bodyweight-standing-calf-raise"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Full range; pause at the top, control the descent.",
+    "safetyNotes": "Use a full, controlled range; pause at the top and lower slowly.",
+    "whySelected": "Loaded calf raise for progressive overload.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-seated-calf-raise",
+    "displayName": "Dumbbell Seated Calf Raise",
+    "sourceId": "1379",
+    "equipment": "dumbbell",
+    "category": "Calves",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "calves",
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      20
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 45,
+    "rpeTarget": 8,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load.",
+    "substitutions": [
+      "dumbbell-standing-calf-raise"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Ankle focus — control the bottom stretch; avoid bouncing.",
+    "safetyNotes": "Seated on a normal chair; dumbbells rest on the knees.",
+    "whySelected": "Targets soleus and is gentle/seated for low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-biceps-curl",
+    "displayName": "Dumbbell Biceps Curl",
+    "sourceId": "0294",
+    "equipment": "dumbbell",
+    "category": "Biceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "pull",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "biceps",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load; alternate arms.",
+    "substitutions": [
+      "dumbbell-concentration-curl",
+      "band-alternating-biceps-curl"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Elbow/wrist focus — low risk with a controlled tempo.",
+    "safetyNotes": "Avoid swinging; keep elbows controlled and close to the body.",
+    "whySelected": "Canonical biceps curl; simple and scalable.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-concentration-curl",
+    "displayName": "Dumbbell Concentration Curl",
+    "sourceId": "0297",
+    "equipment": "dumbbell",
+    "category": "Biceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "pull",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "biceps",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load.",
+    "substitutions": [
+      "dumbbell-biceps-curl"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Elbow/wrist focus — low risk with a controlled tempo.",
+    "safetyNotes": "Brace the elbow on the inner thigh (seated on a chair) — no bench.",
+    "whySelected": "Strict single-arm curl; covers the 'over incline bench' move minus the bench.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-alternate-seated-hammer-curl",
+    "displayName": "Seated Hammer Curl",
+    "sourceId": "1648",
+    "equipment": "dumbbell",
+    "category": "Biceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "pull",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "biceps",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load.",
+    "substitutions": [
+      "dumbbell-biceps-curl"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Elbow/wrist focus — low risk with a controlled tempo.",
+    "safetyNotes": "Use a stable chair; no bench required. Keep elbows tucked and avoid swinging.",
+    "whySelected": "Neutral-grip curl hits brachialis/forearm; easy seated option.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-alternating-biceps-curl",
+    "displayName": "Band Alternating Biceps Curl",
+    "sourceId": "0968",
+    "equipment": "band",
+    "category": "Biceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "pull",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "biceps",
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter band.",
+    "substitutions": [
+      "dumbbell-biceps-curl"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Elbow/wrist focus — low risk with a controlled tempo.",
+    "safetyNotes": "Band under both feet; no anchor.",
+    "whySelected": "Band curl for dumbbell-free or low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-seated-triceps-extension",
+    "displayName": "Seated Overhead Triceps Extension",
+    "sourceId": "2188",
+    "equipment": "dumbbell",
+    "category": "Triceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "push",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "one arm or lighter load.",
+    "substitutions": [
+      "dumbbell-lying-triceps-extension",
+      "dumbbell-kickback"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Keep elbows pointing forward; control behind the head.",
+    "safetyNotes": "Seated on a normal chair.",
+    "whySelected": "Overhead triceps with a long-head stretch; beginner-friendly.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-lying-triceps-extension",
+    "displayName": "Floor Lying Triceps Extension",
+    "sourceId": "0351",
+    "equipment": "dumbbell",
+    "category": "Triceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "push",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load; reduce range.",
+    "substitutions": [
+      "dumbbell-seated-triceps-extension"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Lower toward the forehead/floor under control; elbow-friendly tempo.",
+    "safetyNotes": "Performed lying on the FLOOR; no bench.",
+    "whySelected": "Floor skull-crusher for triceps mass without a bench.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-kickback",
+    "displayName": "Dumbbell Kickback",
+    "sourceId": "0333",
+    "equipment": "dumbbell",
+    "category": "Triceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "push",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load; brace on thigh.",
+    "substitutions": [
+      "dumbbell-seated-triceps-extension"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Elbow focus — control the load near the head; don't flare the elbows.",
+    "safetyNotes": "Keep elbows pointing forward and move only the forearms.",
+    "whySelected": "Triceps isolation with peak contraction; low joint stress.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "bodyweight-kneeling-triceps-extension",
+    "displayName": "Bodyweight Kneeling Triceps Extension",
+    "sourceId": "1771",
+    "equipment": "bodyweight",
+    "category": "Triceps",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "push",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "triceps",
+    "secondaryMuscles": [
+      "shoulders",
+      "chest"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "more upright; shorter range.",
+    "substitutions": [
+      "dumbbell-seated-triceps-extension"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Elbow focus — control the load near the head; don't flare the elbows.",
+    "safetyNotes": "Keep elbows pointing forward and move only the forearms.",
+    "whySelected": "Equipment-free triceps option; useful when traveling.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-lateral-raise",
+    "displayName": "Dumbbell Lateral Raise",
+    "sourceId": "0334",
+    "equipment": "dumbbell",
+    "category": "Shoulder isolation",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "traps"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter load; partial range.",
+    "substitutions": [
+      "band-front-raise",
+      "dumbbell-front-raise"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Lead with elbows, stop around shoulder height; avoid shrugging.",
+    "safetyNotes": "Lead with the elbows and stop near shoulder height; no shrugging.",
+    "whySelected": "Side-delt isolation for shoulder width and balance.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-front-raise",
+    "displayName": "Dumbbell Front Raise",
+    "sourceId": "0310",
+    "equipment": "dumbbell",
+    "category": "Shoulder isolation",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "biceps",
+      "trapezius"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": "dumbbell front raise",
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "alternate arms; lighter.",
+    "substitutions": [
+      "band-front-raise"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Shoulder focus — light loads, no shrugging; low risk when controlled.",
+    "safetyNotes": "Lead with the elbows and stop near shoulder height; no shrugging.",
+    "whySelected": "Front-delt isolation; canonical over its V.2 twin.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "dumbbell-rear-delt-raise",
+    "displayName": "Dumbbell Rear Delt Raise",
+    "sourceId": "2292",
+    "equipment": "dumbbell",
+    "category": "Shoulder isolation",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "trapezius",
+      "rhomboids"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "seated, chest on thighs, lighter.",
+    "substitutions": [
+      "dumbbell-reverse-fly"
+    ],
+    "lowEnergyFriendly": false,
+    "jointRiskNotes": "Shoulder focus — light loads, no shrugging; low risk when controlled.",
+    "safetyNotes": "Lead with the elbows and stop near shoulder height; no shrugging.",
+    "whySelected": "Rear-delt isolation reinforcing posture/shoulder health.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "band-front-raise",
+    "displayName": "Band Front Raise",
+    "sourceId": "0978",
+    "equipment": "band",
+    "category": "Shoulder isolation",
+    "movementPattern": "push",
+    "movementPatternConfidence": "medium",
+    "splitTag": "push",
+    "splitTagConfidence": "high",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "delts",
+    "secondaryMuscles": [
+      "triceps",
+      "upper back"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      12,
+      15
+    ],
+    "setRange": [
+      2,
+      3
+    ],
+    "restSeconds": 60,
+    "rpeTarget": 7,
+    "timeBased": false,
+    "progression": "Add 1–2 reps per set each session; once you hit the top of the rep range for all sets at the target RPE, add a small load (or a set) and drop back to the bottom of the range.",
+    "regression": "lighter band.",
+    "substitutions": [
+      "dumbbell-front-raise"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Shoulder focus — light loads, no shrugging; low risk when controlled.",
+    "safetyNotes": "Band under both feet; no anchor.",
+    "whySelected": "Band delt raise for low-load/low-energy days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "inchworm",
+    "displayName": "Inchworm",
+    "sourceId": "1471",
+    "equipment": "bodyweight",
+    "category": "Mobility/warm-up",
+    "movementPattern": "isolation",
+    "movementPatternConfidence": "low",
+    "splitTag": "core",
+    "splitTagConfidence": "high",
+    "bodyRegion": "full",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "abs",
+    "secondaryMuscles": [
+      "shoulders",
+      "hamstrings"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": "inchworm",
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      1,
+      2
+    ],
+    "restSeconds": 15,
+    "rpeTarget": 3,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "bend knees on the walkout.",
+    "substitutions": [
+      "world-greatest-stretch"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when eased into; never force the range.",
+    "safetyNotes": "Dynamic warm-up; move slowly and breathe.",
+    "whySelected": "Full-body dynamic warm-up: hamstrings, shoulders, core.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "world-greatest-stretch",
+    "displayName": "World's Greatest Stretch",
+    "sourceId": "1604",
+    "equipment": "bodyweight",
+    "category": "Mobility/warm-up",
+    "movementPattern": "mobility",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "hamstrings",
+    "secondaryMuscles": [
+      "glutes",
+      "quadriceps",
+      "calves"
+    ],
+    "beginnerSuitable": false,
+    "difficulty": "intermediate",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      1,
+      2
+    ],
+    "restSeconds": 15,
+    "rpeTarget": 3,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "reduce depth; hold support.",
+    "substitutions": [
+      "inchworm"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when eased into; never force the range.",
+    "safetyNotes": "Ease into the range and breathe; never bounce or force a stretch.",
+    "whySelected": "Opens hips, T-spine, and hamstrings before lower-body days.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "chest-and-front-of-shoulder-stretch",
+    "displayName": "Chest And Front Of Shoulder Stretch",
+    "sourceId": "1271",
+    "equipment": "bodyweight",
+    "category": "Mobility/warm-up",
+    "movementPattern": "mobility",
+    "movementPatternConfidence": "high",
+    "splitTag": "push",
+    "splitTagConfidence": "medium",
+    "bodyRegion": "upper",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "pectorals",
+    "secondaryMuscles": [
+      "deltoids"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      1,
+      2
+    ],
+    "restSeconds": 15,
+    "rpeTarget": 3,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "gentler range.",
+    "substitutions": [
+      "world-greatest-stretch"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when eased into; never force the range.",
+    "safetyNotes": "Ease into the range and breathe; never bounce or force a stretch.",
+    "whySelected": "Counters desk posture; preps shoulders for pressing.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "all-fours-squad-stretch",
+    "displayName": "All-Fours Quad Stretch",
+    "sourceId": "1512",
+    "equipment": "bodyweight",
+    "category": "Mobility/warm-up",
+    "movementPattern": "mobility",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "quads",
+    "secondaryMuscles": [
+      "hamstrings",
+      "glutes"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      1,
+      2
+    ],
+    "restSeconds": 15,
+    "rpeTarget": 3,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "gentler range.",
+    "substitutions": [
+      "seated-glute-stretch"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when eased into; never force the range.",
+    "safetyNotes": "Ease into the range and breathe; never bounce or force a stretch.",
+    "whySelected": "Quad/hip-flexor mobility before squats and lunges.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  },
+  {
+    "slug": "seated-glute-stretch",
+    "displayName": "Seated Glute Stretch",
+    "sourceId": "1424",
+    "equipment": "bodyweight",
+    "category": "Mobility/warm-up",
+    "movementPattern": "mobility",
+    "movementPatternConfidence": "high",
+    "splitTag": "legs",
+    "splitTagConfidence": "high",
+    "bodyRegion": "lower",
+    "bodyRegionProvenance": "inferred",
+    "primaryMuscle": "glutes",
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "beginnerSuitable": true,
+    "difficulty": "beginner",
+    "difficultyConfidence": "manual-confirmed",
+    "homeSuitable": true,
+    "homeSuitableConfidence": "medium",
+    "requiresAnchor": false,
+    "requiresBench": false,
+    "requiresPullupBar": false,
+    "requiresSpecialEquipment": false,
+    "requiresDoorSetup": false,
+    "canonicalExercise": true,
+    "duplicateGroup": null,
+    "repRange": [
+      20,
+      40
+    ],
+    "setRange": [
+      1,
+      2
+    ],
+    "restSeconds": 15,
+    "rpeTarget": 3,
+    "timeBased": true,
+    "progression": "Add 5 seconds per set each session; once you hold the top of the range for all sets, add a set or progress to a harder variation.",
+    "regression": "less depth.",
+    "substitutions": [
+      "all-fours-squad-stretch"
+    ],
+    "lowEnergyFriendly": true,
+    "jointRiskNotes": "Low joint risk when eased into; never force the range.",
+    "safetyNotes": "Ease into the range and breathe; never bounce or force a stretch.",
+    "whySelected": "Glute/hip cooldown or warm-up; gentle and seated.",
+    "_provenance": {
+      "source": [
+        "sourceId",
+        "displayName",
+        "equipment",
+        "primaryMuscle",
+        "secondaryMuscles"
+      ],
+      "inferred": [
+        "movementPattern",
+        "splitTag",
+        "bodyRegion",
+        "homeSuitable"
+      ],
+      "manualCurated": [
+        "category",
+        "difficulty",
+        "repRange",
+        "setRange",
+        "restSeconds",
+        "rpeTarget",
+        "progression",
+        "regression",
+        "substitutions",
+        "lowEnergyFriendly",
+        "jointRiskNotes",
+        "safetyNotes",
+        "whySelected",
+        "requiresAnchor",
+        "requiresBench",
+        "requiresPullupBar",
+        "requiresSpecialEquipment",
+        "requiresDoorSetup",
+        "canonicalExercise"
+      ]
+    }
+  }
+]
