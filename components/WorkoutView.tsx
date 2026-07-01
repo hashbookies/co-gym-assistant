@@ -28,6 +28,24 @@ export default function WorkoutView({
   // Only one exercise demo/timer may run at a time, across warm-up + main.
   // Starting a new card's demo stops whichever one was previously active.
   const [activeMediaKey, setActiveMediaKey] = useState<string | null>(null);
+  // Same "one timer at a time" rule extends to the rest timer: starting a
+  // work/demo timer cancels any running rest timer and vice versa.
+  const [restingSlug, setRestingSlug] = useState<string | null>(null);
+
+  function startWorkTimer(key: string) {
+    setActiveMediaKey(key);
+    setRestingSlug(null);
+  }
+  function stopWorkTimer(key: string) {
+    setActiveMediaKey((cur) => (cur === key ? null : cur));
+  }
+  function startRest(slug: string) {
+    setRestingSlug(slug);
+    setActiveMediaKey(null);
+  }
+  function stopRest(slug: string) {
+    setRestingSlug((cur) => (cur === slug ? null : cur));
+  }
 
   const mainSlugs = workout.main.map((m) => m.slug);
   const pending = pendingExercises(mainSlugs, logsRef.current);
@@ -68,8 +86,8 @@ export default function WorkoutView({
                   p={p}
                   isWarmup
                   isActiveDemo={activeMediaKey === key}
-                  onRequestStart={() => setActiveMediaKey(key)}
-                  onRequestStop={() => setActiveMediaKey((cur) => (cur === key ? null : cur))}
+                  onRequestStart={() => startWorkTimer(key)}
+                  onRequestStop={() => stopWorkTimer(key)}
                 />
               );
             })}
@@ -80,16 +98,17 @@ export default function WorkoutView({
       <section>
         <h3 className="section-label mb-2">Main work</h3>
         <div className="space-y-3">
-          {workout.main.map((p) => {
+          {workout.main.map((p, i) => {
             const key = `m-${p.slug}`;
+            const nextSlug = workout.main[i + 1]?.slug;
             return (
               <ExerciseCard
                 key={key}
                 p={p}
                 hint={hints?.[p.slug]}
                 isActiveDemo={activeMediaKey === key}
-                onRequestStart={() => setActiveMediaKey(key)}
-                onRequestStop={() => setActiveMediaKey((cur) => (cur === key ? null : cur))}
+                onRequestStart={() => startWorkTimer(key)}
+                onRequestStop={() => stopWorkTimer(key)}
                 footer={
                   logging && (
                     <ExerciseLogger
@@ -97,6 +116,15 @@ export default function WorkoutView({
                       weightUnit={weightUnit}
                       defaultWeight={lastWeightBySlug?.[p.slug] ?? 0}
                       onChange={(log) => handleChange(p.slug, log)}
+                      isResting={restingSlug === p.slug}
+                      onRequestRestStart={() => startRest(p.slug)}
+                      onRequestRestStop={() => stopRest(p.slug)}
+                      onStartNextSet={() => startWorkTimer(key)}
+                      onMoveToNext={nextSlug ? () => {
+                        document
+                          .querySelector(`[data-testid="exercise-card-${nextSlug}"]`)
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      } : undefined}
                     />
                   )
                 }

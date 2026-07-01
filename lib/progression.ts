@@ -63,9 +63,11 @@ export function suggestProgression(
     return { action: "hold", text: "Hold today — your readiness check suggests taking it easier. Keep the same weight and reps." };
   }
 
-  // Skipped / never-logged sessions carry no completion signal — hold.
-  if (last.status === "skipped" || last.status === "not_started") {
-    return { action: "hold", text: "Last session was skipped — repeat the same target when you're ready, with good form." };
+  // Skipped / never-logged / still-in-progress sessions carry no completion
+  // signal — hold. "in_progress" specifically means the exercise was never
+  // actually finished, so it must never be read as a strong session.
+  if (last.status === "skipped" || last.status === "not_started" || last.status === "in_progress") {
+    return { action: "hold", text: "Last session wasn't finished — repeat the same target when you're ready, with good form." };
   }
 
   const sets = last.actualSets;
@@ -76,6 +78,13 @@ export function suggestProgression(
     const anyMissed = sets.some((s) => !s.completed) || last.sessionFeel === "missed";
     if (anyMissed) {
       return { action: "hold", text: "A set was missed last time — repeat the same weight and aim to complete every set with good form." };
+    }
+
+    // "modified" is a deliberate finish, but it can carry fewer sets than
+    // planned (e.g. "Finish as modified" partway through) — be conservative
+    // and only progress from it once the full planned volume is actually there.
+    if (last.status === "modified" && sets.length < last.plannedSets) {
+      return { action: "hold", text: "Only part of the planned sets were logged last time — repeat the same target and aim to complete every set." };
     }
 
     const completed = sets.filter((s) => s.completed);

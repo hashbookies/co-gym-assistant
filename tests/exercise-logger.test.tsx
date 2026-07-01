@@ -29,15 +29,41 @@ describe("ExerciseLogger: honest logging wiring (component-level, not just the p
     expect(lastLog(onChange).actualSets).toEqual([]);
   });
 
-  it("'Log as planned' emits completed sets only after the explicit tap", () => {
+  it("'Log set as planned' logs exactly one set per tap, using the planned reps/RPE and the given weight", () => {
     const onChange = vi.fn();
     render(<ExerciseLogger prescription={rx()} weightUnit="lb" defaultWeight={25} onChange={onChange} />);
-    fireEvent.click(screen.getByRole("button", { name: /log as planned/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
     const log = lastLog(onChange);
-    expect(log.status).toBe("completed");
-    expect(log.actualSets).toHaveLength(3);
-    expect(log.actualSets.every((s) => s.completed)).toBe(true);
-    expect(log.actualSets[0].weight).toBe(25);
+    expect(log.status).toBe("in_progress"); // 1 of 3 planned sets — not yet complete, NOT terminal
+    expect(log.actualSets).toHaveLength(1);
+    expect(log.actualSets[0]).toMatchObject({ setNumber: 1, reps: 12, weight: 25, rpe: 7, completed: true });
+    expect(log.sessionFeel).toBe("good");
+  });
+
+  it("repeated taps log set 1, then set 2, then set 3, becoming 'completed' only on the last one", () => {
+    const onChange = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={onChange} />);
+    const tap = () => fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
+
+    tap();
+    expect(lastLog(onChange).actualSets.map((s) => s.setNumber)).toEqual([1]);
+    expect(lastLog(onChange).status).toBe("in_progress");
+
+    tap();
+    expect(lastLog(onChange).actualSets.map((s) => s.setNumber)).toEqual([1, 2]);
+    expect(lastLog(onChange).status).toBe("in_progress");
+
+    tap();
+    expect(lastLog(onChange).actualSets.map((s) => s.setNumber)).toEqual([1, 2, 3]);
+    expect(lastLog(onChange).status).toBe("completed"); // all 3 planned sets logged
+    expect(lastLog(onChange).actualSets.every((s) => s.completed)).toBe(true);
+  });
+
+  it("a fresh exercise starts with 0 logged sets", () => {
+    const onChange = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={onChange} />);
+    expect(lastLog(onChange).actualSets).toHaveLength(0);
+    expect(lastLog(onChange).status).toBe("not_started");
   });
 
   it("'Skip' emits a skipped/missed state with no completed sets", () => {
@@ -79,9 +105,9 @@ describe("ExerciseLogger: honest logging wiring (component-level, not just the p
 
   it("'Reset' returns a modified/completed log back to not_started", () => {
     const onChange = vi.fn();
-    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={onChange} />);
-    fireEvent.click(screen.getByRole("button", { name: /log as planned/i }));
-    expect(lastLog(onChange).status).toBe("completed");
+    render(<ExerciseLogger prescription={rx({ sets: [1, 1] })} weightUnit="lb" onChange={onChange} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
+    expect(lastLog(onChange).status).toBe("completed"); // single planned set — done in one tap
 
     fireEvent.click(screen.getByRole("button", { name: /^reset$/i }));
     expect(lastLog(onChange).status).toBe("not_started");
@@ -163,5 +189,144 @@ describe("ExerciseLogger: numeric inputs don't force 0 mid-edit", () => {
     // The input should reflect the freshly reset canonical value (12), not the stale blank draft.
     expect(screen.getByDisplayValue("12")).toBeInTheDocument();
     expect(lastLog(onChange).actualSets[0].reps).toBe(12);
+  });
+});
+
+describe("ExerciseLogger: guided rest / next-set panel", () => {
+  it("the primary quick-log path ('Log set as planned') offers rest after the FIRST tap, with sets remaining", () => {
+    const onRequestRestStart = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={vi.fn()} onRequestRestStart={onRequestRestStart} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
+    expect(screen.getByText("Set 1 logged")).toBeInTheDocument();
+    expect(screen.getByText("Next set: 2 of 3")).toBeInTheDocument();
+    expect(onRequestRestStart).toHaveBeenCalledTimes(1);
+    expect(screen.queryByText("Exercise complete")).not.toBeInTheDocument();
+  });
+
+  it("no rest is offered once the final planned set is logged — 'Exercise complete' instead", () => {
+    const onRequestRestStart = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={vi.fn()} onRequestRestStart={onRequestRestStart} onMoveToNext={vi.fn()} />);
+    const tap = () => fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
+    tap(); // set 1 -> rest offered
+    tap(); // set 2 -> rest offered
+    onRequestRestStart.mockClear();
+    tap(); // set 3 -> exercise complete, no more rest
+
+    expect(screen.getByText("Exercise complete")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /move to next exercise/i })).toBeInTheDocument();
+    expect(onRequestRestStart).not.toHaveBeenCalled();
+    expect(screen.queryByText(/set.*logged/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/next set/i)).not.toBeInTheDocument();
+  });
+
+  it("no guided panel appears for not_started or skipped", () => {
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={vi.fn()} />);
+    expect(screen.queryByText("Exercise complete")).not.toBeInTheDocument();
+    expect(screen.queryByText(/set.*left/i)).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: /^skip$/i }));
+    expect(screen.queryByText("Exercise complete")).not.toBeInTheDocument();
+    expect(screen.queryByText(/set.*left/i)).not.toBeInTheDocument();
+  });
+
+  it("onRequestRestStart fires exactly once per quick-log tap while sets remain, and not on the final (completing) tap", () => {
+    const onRequestRestStart = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={vi.fn()} onRequestRestStart={onRequestRestStart} />);
+    const tap = () => fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
+
+    tap(); // set 1 of 3 -> in_progress, rest offered
+    expect(onRequestRestStart).toHaveBeenCalledTimes(1);
+
+    tap(); // set 2 of 3 -> still in_progress, rest offered again
+    expect(onRequestRestStart).toHaveBeenCalledTimes(2);
+
+    tap(); // set 3 of 3 -> completed, no more rest
+    expect(onRequestRestStart).toHaveBeenCalledTimes(2);
+  });
+
+  it("the rest timer is idle (not counting) unless the parent marks isResting true — starting rest never alters the log", () => {
+    const onChange = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={onChange} isResting={false} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i })); // 1 of 3 -> in_progress
+
+    expect(screen.getByRole("button", { name: /start rest/i })).toBeInTheDocument();
+    const before = lastLog(onChange);
+    fireEvent.click(screen.getByRole("button", { name: /start rest/i }));
+    // Starting/offering rest must never itself change the exercise log.
+    expect(lastLog(onChange)).toEqual(before);
+  });
+
+  it("'Start next set' from the guided panel does not alter the exercise log itself", () => {
+    const onChange = vi.fn();
+    const onStartNextSet = vi.fn();
+    render(
+      <ExerciseLogger
+        prescription={rx()} weightUnit="lb" onChange={onChange}
+        isResting onStartNextSet={onStartNextSet}
+      />,
+    );
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i })); // 1 of 3 -> in_progress
+
+    const before = lastLog(onChange);
+    fireEvent.click(screen.getByRole("button", { name: /^start next set$/i }));
+    expect(onStartNextSet).toHaveBeenCalledTimes(1);
+    expect(lastLog(onChange)).toEqual(before);
+  });
+
+  it("'Finish as modified' terminalizes an in_progress exercise, preserving exactly the sets already logged", () => {
+    const onChange = vi.fn();
+    const onRequestRestStop = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={onChange} isResting onRequestRestStop={onRequestRestStop} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i })); // 1 of 3 -> in_progress
+    expect(lastLog(onChange).status).toBe("in_progress");
+
+    fireEvent.click(screen.getByRole("button", { name: /^finish as modified$/i }));
+    const log = lastLog(onChange);
+    expect(log.status).toBe("modified");
+    expect(log.actualSets).toHaveLength(1); // no fake sets added
+    expect(log.actualSets[0].setNumber).toBe(1);
+    expect(onRequestRestStop).toHaveBeenCalled(); // rest timer stopped
+
+    expect(screen.getByText("Exercise finished as modified")).toBeInTheDocument();
+    expect(screen.queryByText(/next set/i)).not.toBeInTheDocument();
+  });
+
+  it("'Edit sets' immediately terminalizes as 'modified' — no rest is ever offered from the manual editor", () => {
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={vi.fn()} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i })); // 1 of 3 -> in_progress
+    fireEvent.click(screen.getByRole("button", { name: /^edit sets$/i }));
+
+    expect(screen.queryByText(/next set/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^start rest/i })).not.toBeInTheDocument();
+  });
+
+  it("'Edit sets' after a partial quick-log preserves the already-logged set and fills in the rest", () => {
+    const onChange = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" defaultWeight={25} onChange={onChange} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i })); // set 1 logged (weight 25)
+
+    fireEvent.click(screen.getByRole("button", { name: /^edit sets$/i }));
+    const log = lastLog(onChange);
+    expect(log.actualSets).toHaveLength(3); // all 3 rows now present
+    expect(log.actualSets[0]).toMatchObject({ setNumber: 1, weight: 25, completed: true }); // preserved as-logged
+    expect(log.actualSets[1]).toMatchObject({ setNumber: 2, completed: true }); // filled in as planned
+    expect(log.actualSets[2]).toMatchObject({ setNumber: 3, completed: true });
+    // All 3 rows are now visible in the editor.
+    expect(screen.getAllByRole("button", { name: /^completed$/ })).toHaveLength(3);
+  });
+
+  it("'Skip' from mid-way through quick-logging discards the partial sets and starts no rest timer", () => {
+    const onChange = vi.fn();
+    const onRequestRestStart = vi.fn();
+    render(<ExerciseLogger prescription={rx()} weightUnit="lb" onChange={onChange} onRequestRestStart={onRequestRestStart} />);
+    fireEvent.click(screen.getByRole("button", { name: /^log set as planned$/i }));
+    onRequestRestStart.mockClear();
+
+    fireEvent.click(screen.getByRole("button", { name: /^skip$/i }));
+    const log = lastLog(onChange);
+    expect(log.status).toBe("skipped");
+    expect(log.actualSets).toEqual([]);
+    expect(onRequestRestStart).not.toHaveBeenCalled();
+    expect(screen.queryByText(/rest/i)).not.toBeInTheDocument();
   });
 });

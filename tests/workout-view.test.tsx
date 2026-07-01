@@ -63,9 +63,11 @@ describe("WorkoutView: completion gate blocks incomplete logging", () => {
     const completeButton = () => screen.getByTestId("complete-workout-button");
     expect(completeButton()).toBeDisabled();
 
-    // Log main-a as planned.
-    fireEvent.click(screen.getAllByRole("button", { name: /^log as planned$/i })[0]);
+    // Log main-a's 3 planned sets one at a time (sets:[3,3] default).
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
     expect(completeButton()).toBeDisabled(); // main-b still not_started
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
 
     // Skip main-b (the last remaining "Skip" button — main-a's logger now shows
     // its own "completed" state with a different Skip button too).
@@ -104,7 +106,11 @@ describe("WorkoutView: sticky completion bar uses count-based copy, not an inlin
 
   it("switches to 'Ready to complete workout' once every main exercise is logged/skipped", () => {
     render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
-    fireEvent.click(screen.getAllByRole("button", { name: /^log as planned$/i })[0]);
+    // Fully log main-a's 3 planned sets (a single tap only reaches "in_progress",
+    // which is NOT terminal and must not satisfy the completion gate).
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
     fireEvent.click(screen.getAllByRole("button", { name: /^skip$/i }).pop()!);
     expect(screen.getByText("Ready to complete workout")).toBeInTheDocument();
     expect(screen.queryByText(/exercises left to log/i)).not.toBeInTheDocument();
@@ -114,7 +120,12 @@ describe("WorkoutView: sticky completion bar uses count-based copy, not an inlin
 
   it("singular copy reads '1 exercise left to log'", () => {
     render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
-    fireEvent.click(screen.getAllByRole("button", { name: /^log as planned$/i })[0]);
+    // main-a must be fully completed (terminal) to count as "logged" — a
+    // single in_progress tap must not make it count.
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    expect(screen.getByText("2 exercises left to log")).toBeInTheDocument(); // still in_progress, not terminal
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
     expect(screen.getByText("1 exercise left to log")).toBeInTheDocument();
   });
 });
@@ -126,7 +137,9 @@ describe("WorkoutView: warm-up exercises never count toward or block completion"
     // 1 warm-up + 2 main exist, but the count only reflects the 2 main exercises.
     expect(screen.getByText("2 exercises left to log")).toBeInTheDocument();
 
-    fireEvent.click(screen.getAllByRole("button", { name: /^log as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /^log set as planned$/i })[0]);
     fireEvent.click(screen.getAllByRole("button", { name: /^skip$/i }).pop()!);
 
     expect(screen.getByTestId("complete-workout-button")).not.toBeDisabled();
@@ -140,7 +153,7 @@ describe("WorkoutView: warm-up exercises never count toward or block completion"
   it("warm-up cards render no Log as planned / Edit sets / Skip controls", () => {
     render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
     // Only the 2 main exercises should offer logging actions, never the warm-up.
-    expect(screen.getAllByRole("button", { name: /^log as planned$/i })).toHaveLength(2);
+    expect(screen.getAllByRole("button", { name: /^log set as planned$/i })).toHaveLength(2);
     expect(screen.getAllByRole("button", { name: /^edit sets$/i })).toHaveLength(2);
   });
 
@@ -174,6 +187,156 @@ describe("WorkoutView: logger is merged into the same card surface as its exerci
     const loggerA = screen.getByTestId("exercise-logger-main-a");
     const cardA = screen.getByTestId("exercise-card-main-a");
     expect(cardA.contains(loggerA)).toBe(true);
+  });
+});
+
+describe("WorkoutView: guided rest timer", () => {
+  beforeEach(() => vi.useFakeTimers());
+  afterEach(() => vi.useRealTimers());
+
+  // Leaves exactly 1 of 3 planned sets logged on the given card via the
+  // primary quick-log path — this alone reaches "in_progress", which is
+  // exactly the state that offers a rest timer.
+  function partiallyLogOneSet(card: HTMLElement) {
+    fireEvent.click(within(card).getByRole("button", { name: /^log set as planned$/i }));
+  }
+
+  it("rest timer auto-starts after a partial log, counts down, and beeps at zero without touching the log", () => {
+    render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    partiallyLogOneSet(cardA);
+
+    expect(within(cardA).getByText("Set 1 logged")).toBeInTheDocument();
+    expect(within(cardA).getByText("Next set: 2 of 3")).toBeInTheDocument();
+    expect(within(cardA).getByText("Rest 01:00")).toBeInTheDocument();
+    expect(within(cardA).getByText("In progress")).toBeInTheDocument();
+
+    act(() => vi.advanceTimersByTime(30000));
+    expect(within(cardA).getByText("Rest 00:30")).toBeInTheDocument();
+    // The ticking countdown never logs anything — still exactly 1 set logged.
+    expect(within(cardA).getByText("Set 1 logged")).toBeInTheDocument();
+    expect(within(cardA).getByText("In progress")).toBeInTheDocument();
+
+    act(() => vi.advanceTimersByTime(30000));
+    expect(within(cardA).getByText("Rest complete")).toBeInTheDocument();
+    expect(within(cardA).getByRole("button", { name: /^start next set$/i })).toBeInTheDocument();
+    expect(within(cardA).getByText("Set 1 logged")).toBeInTheDocument();
+    expect(within(cardA).getByText("In progress")).toBeInTheDocument();
+  });
+
+  it("'Skip rest' ends the countdown early without logging anything", () => {
+    render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    partiallyLogOneSet(cardA);
+
+    expect(within(cardA).getByText("Rest 01:00")).toBeInTheDocument();
+    fireEvent.click(within(cardA).getByRole("button", { name: /^skip rest$/i }));
+
+    expect(within(cardA).getByText("Rest skipped")).toBeInTheDocument();
+    expect(within(cardA).getByText("Set 1 logged")).toBeInTheDocument();
+    expect(within(cardA).getByText("In progress")).toBeInTheDocument();
+  });
+
+  it("'Start next set' starts the exercise's own work/demo timer (same as tapping Start)", () => {
+    render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    partiallyLogOneSet(cardA);
+
+    fireEvent.click(within(cardA).getByRole("button", { name: /^start next set$/i }));
+    // The card's own demo/work timer is now the active one — its Start button
+    // becomes Stop and the gif is showing, exactly like tapping Start directly.
+    expect(within(cardA).getByRole("button", { name: /^■ stop$/i })).toBeInTheDocument();
+    const img = within(cardA).getAllByRole("img")[0];
+    expect(img).toHaveAttribute("src", "/videos/m1.gif");
+  });
+
+  it("starting another card's work timer cancels an in-progress rest timer", () => {
+    render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    const cardB = screen.getByTestId("exercise-card-main-b");
+    partiallyLogOneSet(cardA);
+    expect(within(cardA).getByText("Rest 01:00")).toBeInTheDocument();
+
+    fireEvent.click(within(cardB).getByRole("button", { name: /^▶ start$/i }));
+
+    // Card A's rest timer was cancelled — it now reads as skipped, not still counting.
+    expect(within(cardA).queryByText(/^Rest 0/)).not.toBeInTheDocument();
+    expect(within(cardA).getByText("Rest skipped")).toBeInTheDocument();
+    // Card B's work timer is the one now running.
+    expect(within(cardB).getByRole("button", { name: /^■ stop$/i })).toBeInTheDocument();
+  });
+
+  it("starting a rest timer cancels an in-progress work/demo timer elsewhere", () => {
+    render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    const cardB = screen.getByTestId("exercise-card-main-b");
+
+    fireEvent.click(within(cardB).getByRole("button", { name: /^▶ start$/i }));
+    expect(within(cardB).getByRole("button", { name: /^■ stop$/i })).toBeInTheDocument();
+
+    partiallyLogOneSet(cardA); // auto-starts card A's rest timer
+    expect(within(cardA).getByText("Rest 01:00")).toBeInTheDocument();
+
+    // Card B's work timer was cancelled by the new rest timer starting.
+    expect(within(cardB).getByRole("button", { name: /^▶ start$/i })).toBeInTheDocument();
+  });
+
+  it("does not recommend rest for a skipped exercise, and completing all sets shows 'Exercise complete' with no rest offer", () => {
+    render(<WorkoutView workout={workout} onComplete={vi.fn()} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    const cardB = screen.getByTestId("exercise-card-main-b");
+
+    fireEvent.click(within(cardB).getByRole("button", { name: /^skip$/i }));
+    // The always-present "Rest" stat label (Sets/Reps/Rest/RPE grid) is fine —
+    // only the guided rest-timer panel itself must be absent.
+    expect(within(cardB).queryByText(/^Rest \d/)).not.toBeInTheDocument();
+    expect(within(cardB).queryByText(/^Start rest/)).not.toBeInTheDocument();
+    expect(within(cardB).queryByText("Exercise complete")).not.toBeInTheDocument();
+
+    // Log all 3 of card A's planned sets, one tap at a time.
+    fireEvent.click(within(cardA).getByRole("button", { name: /^log set as planned$/i }));
+    fireEvent.click(within(cardA).getByRole("button", { name: /^log set as planned$/i }));
+    fireEvent.click(within(cardA).getByRole("button", { name: /^log set as planned$/i }));
+    expect(within(cardA).getByText("Exercise complete")).toBeInTheDocument();
+    expect(within(cardA).queryByText(/^Rest \d/)).not.toBeInTheDocument();
+    expect(within(cardA).queryByText(/^Start rest/)).not.toBeInTheDocument();
+  });
+
+  it("an in_progress exercise (1 of 3 sets tapped) does NOT satisfy the completion gate — the core fix", () => {
+    const onComplete = vi.fn();
+    render(<WorkoutView workout={workout} onComplete={onComplete} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    partiallyLogOneSet(cardA); // main-a is "in_progress" — NOT terminal — main-b still not_started
+
+    // Both main exercises are still pending: in_progress must not count as "logged".
+    expect(screen.getByText("2 exercises left to log")).toBeInTheDocument();
+    expect(screen.getByTestId("complete-workout-button")).toBeDisabled();
+
+    act(() => vi.advanceTimersByTime(60000)); // rest timer finishes naturally — no effect on the gate
+    expect(screen.getByText("2 exercises left to log")).toBeInTheDocument();
+    expect(screen.getByTestId("complete-workout-button")).toBeDisabled();
+    expect(onComplete).not.toHaveBeenCalled();
+  });
+
+  it("'Finish as modified' terminalizes an in_progress exercise so it DOES satisfy the completion gate", () => {
+    const onComplete = vi.fn();
+    render(<WorkoutView workout={workout} onComplete={onComplete} />);
+    const cardA = screen.getByTestId("exercise-card-main-a");
+    const cardB = screen.getByTestId("exercise-card-main-b");
+    partiallyLogOneSet(cardA); // main-a is "in_progress"
+    expect(screen.getByText("2 exercises left to log")).toBeInTheDocument();
+
+    fireEvent.click(within(cardA).getByRole("button", { name: /^finish as modified$/i }));
+    expect(within(cardA).getByText("Exercise finished as modified")).toBeInTheDocument();
+    expect(screen.getByText("1 exercise left to log")).toBeInTheDocument(); // only main-b now pending
+
+    fireEvent.click(within(cardB).getByRole("button", { name: /^skip$/i }));
+    expect(screen.getByTestId("complete-workout-button")).not.toBeDisabled();
+    fireEvent.click(screen.getByTestId("complete-workout-button"));
+
+    const exercises = onComplete.mock.calls[0][1];
+    expect(exercises.find((e: { exerciseSlug: string }) => e.exerciseSlug === "main-a")?.status).toBe("modified");
+    expect(exercises.find((e: { exerciseSlug: string }) => e.exerciseSlug === "main-a")?.actualSets).toHaveLength(1);
   });
 });
 

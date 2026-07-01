@@ -1,6 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { suggestProgression, canProgress } from "@/lib/progression";
-import type { PoolExercise, ExerciseLog, ActualSet, ReadinessResult, Equipment, SessionFeel } from "@/lib/types";
+import { makeNotStartedLog, appendPlannedSet, finishAsModified } from "@/lib/logs";
+import type {
+  PoolExercise, ExerciseLog, ExercisePrescription, ActualSet, ReadinessResult, Equipment, SessionFeel,
+} from "@/lib/types";
 
 function ex(equipment: Equipment, substitutions: string[] = []): PoolExercise {
   return {
@@ -99,5 +102,58 @@ describe("suggestProgression (sparse / migrated — sessionFeel only)", () => {
   it("easy + loaded -> add weight; easy + bodyweight -> not weight", () => {
     expect(suggestProgression(ex("dumbbell"), empty("easy"), readiness("normal")).action).toBe("add-weight");
     expect(suggestProgression(ex("bodyweight", []), empty("easy"), readiness("normal")).action).not.toBe("add-weight");
+  });
+});
+
+describe("suggestProgression reads progressively-built logs ('Log set as planned' taps) correctly", () => {
+  const prescription: ExercisePrescription = {
+    slug: "x", displayName: "X", equipment: "dumbbell", movementPattern: "squat",
+    primaryMuscle: "quads", difficulty: "beginner", image: "", gif: "",
+    sets: [3, 3], reps: [8, 12], timeBased: false, restSeconds: 60, rpe: 7,
+    substitutions: [], safetyNotes: "s", jointRiskNotes: "j", regression: "r",
+  };
+
+  it("a log built one tap at a time (top of range, given weight) suggests add-weight, same as a bulk-logged session", () => {
+    let built = makeNotStartedLog(prescription);
+    built = appendPlannedSet(built, prescription, "lb", 20);
+    built = appendPlannedSet(built, prescription, "lb", 20);
+    built = appendPlannedSet(built, prescription, "lb", 20);
+    expect(built.status).toBe("completed");
+    expect(built.actualSets).toHaveLength(3);
+
+    const bulk = log(topSets); // status "completed", same 3x reps-at-top-of-range shape
+    expect(suggestProgression(ex("dumbbell"), built, readiness("normal")))
+      .toEqual(suggestProgression(ex("dumbbell"), bulk, readiness("normal")));
+    expect(suggestProgression(ex("dumbbell"), built, readiness("normal")).action).toBe("add-weight");
+  });
+
+  it("holds for an in_progress log (1 of 3 planned sets tapped) — never reads a partial session as strong", () => {
+    let built = makeNotStartedLog(prescription);
+    built = appendPlannedSet(built, prescription, "lb", 20); // only 1 of 3 planned sets
+    expect(built.status).toBe("in_progress");
+    expect(built.actualSets).toHaveLength(1);
+
+    expect(suggestProgression(ex("dumbbell"), built, readiness("normal")).action).toBe("hold");
+  });
+
+  it("holds for a 'modified' log finished early with fewer sets than planned (conservative, not a false progress signal)", () => {
+    let built = makeNotStartedLog(prescription);
+    built = appendPlannedSet(built, prescription, "lb", 20); // 1 of 3 planned sets
+    built = finishAsModified(built, prescription); // user stops here, terminal
+    expect(built.status).toBe("modified");
+    expect(built.actualSets).toHaveLength(1);
+
+    expect(suggestProgression(ex("dumbbell"), built, readiness("normal")).action).toBe("hold");
+  });
+
+  it("a 'modified' log that DOES cover every planned set (just via the manual editor) can still progress normally", () => {
+    let built = makeNotStartedLog(prescription);
+    built = appendPlannedSet(built, prescription, "lb", 20);
+    built = appendPlannedSet(built, prescription, "lb", 20);
+    built = appendPlannedSet(built, prescription, "lb", 20); // completed, 3 of 3
+    built = { ...built, status: "modified", modified: true }; // e.g. user tweaked something via Edit sets
+    expect(built.actualSets).toHaveLength(3);
+
+    expect(suggestProgression(ex("dumbbell"), built, readiness("normal")).action).toBe("add-weight");
   });
 });

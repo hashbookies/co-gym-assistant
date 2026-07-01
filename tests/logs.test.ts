@@ -73,6 +73,57 @@ describe("migrateLog", () => {
   });
 });
 
+describe("migrateLog: in_progress status migration safety", () => {
+  it("a legacy saved log with explicit status 'modified' and fewer sets than planned STAYS 'modified' — never reinterpreted as in_progress", () => {
+    // A saved history entry is, by definition, a terminal/finished session —
+    // even if it only has 1 of 3 planned sets recorded (e.g. "Finish as
+    // modified" partway through, or an older build's partial-completion bug).
+    const raw = {
+      id: "lp", date: "x", mode: "normal",
+      exercises: [{
+        exerciseSlug: "dumbbell-squat", plannedSets: 3, status: "modified",
+        actualSets: [{ setNumber: 1, reps: 10, weight: 20, weightUnit: "lb", rpe: 7, completed: true }],
+        sessionFeel: "good", modified: true,
+      }],
+    };
+    const out = migrateLog(raw)!;
+    expect(out.exercises[0].status).toBe("modified");
+    expect(out.exercises[0].actualSets).toHaveLength(1);
+  });
+
+  it("an explicit 'in_progress' status validates through migration without crashing (defensive — should never actually be saved)", () => {
+    const raw = {
+      id: "lip", date: "x", mode: "normal",
+      exercises: [{
+        exerciseSlug: "dumbbell-squat", plannedSets: 3, status: "in_progress",
+        actualSets: [{ setNumber: 1, reps: 10, weight: 20, weightUnit: "lb", rpe: 7, completed: true }],
+        sessionFeel: "good", modified: false,
+      }],
+    };
+    expect(() => migrateLog(raw)).not.toThrow();
+    const out = migrateLog(raw)!;
+    expect(out.exercises[0].status).toBe("in_progress");
+  });
+
+  it("old fully-completed and skipped logs are unaffected by the new status", () => {
+    const completedRaw = {
+      id: "lc", date: "x", mode: "normal",
+      exercises: [{
+        exerciseSlug: "push-up", plannedSets: 3, status: "completed",
+        actualSets: [1, 2, 3].map((n) => ({ setNumber: n, reps: 10, weight: 0, weightUnit: "lb", rpe: 7, completed: true })),
+        sessionFeel: "good", modified: false,
+      }],
+    };
+    expect(migrateLog(completedRaw)!.exercises[0].status).toBe("completed");
+
+    const skippedRaw = {
+      id: "ls", date: "x", mode: "normal",
+      exercises: [{ exerciseSlug: "push-up", plannedSets: 3, status: "skipped", actualSets: [], sessionFeel: "missed", modified: false }],
+    };
+    expect(migrateLog(skippedRaw)!.exercises[0].status).toBe("skipped");
+  });
+});
+
 describe("migrateLogs", () => {
   it("returns [] for non-array / corrupt top-level values", () => {
     expect(migrateLogs(null)).toEqual([]);

@@ -13,10 +13,13 @@ function prettifySlug(slug: string): string {
   return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-const STATUSES: ExerciseStatus[] = ["not_started", "completed", "modified", "skipped"];
+const STATUSES: ExerciseStatus[] = ["not_started", "in_progress", "completed", "modified", "skipped"];
 function asStatus(v: unknown, fallback: ExerciseStatus): ExerciseStatus {
   return typeof v === "string" && (STATUSES as string[]).includes(v) ? (v as ExerciseStatus) : fallback;
 }
+
+/** Terminal statuses satisfy the workout completion gate; in_progress does not. */
+const TERMINAL_STATUSES: ExerciseStatus[] = ["completed", "modified", "skipped"];
 
 // ---------------------------------------------------------------------------
 // Pure log builders — the single source of truth for honest logging state.
@@ -52,7 +55,10 @@ export function makeNotStartedLog(p: ExercisePrescription): ExerciseLog {
   return { ...baseFromPrescription(p), status: "not_started", actualSets: [], sessionFeel: "good", modified: false };
 }
 
-/** "Log as planned" — explicit confirmation that the planned work was done. */
+/** "Log as planned" — explicit confirmation that the planned work was done
+ * for every set at once. Retained for callers that still want a one-shot
+ * bulk log (e.g. tests, migrations); the primary guided UI now uses
+ * `appendPlannedSet` to build the same result up one set at a time. */
 export function makePlannedLog(p: ExercisePrescription, unit: WeightUnit, weight: number): ExerciseLog {
   return {
     ...baseFromPrescription(p), status: "completed",
@@ -60,14 +66,55 @@ export function makePlannedLog(p: ExercisePrescription, unit: WeightUnit, weight
   };
 }
 
+/**
+ * "Log set as planned" — the primary quick-log path. Appends exactly one
+ * more set (planned reps/RPE, given weight) onto whatever's already logged,
+ * so the guided rest timer has a real "more sets remain" moment to react to
+ * between taps. Status becomes "in_progress" — an explicitly NON-terminal
+ * state — while sets remain, and "completed" once the last planned set is
+ * appended (identical in shape to `makePlannedLog`). Never sets "modified":
+ * that status is reserved for an exercise the user has intentionally
+ * finished with changes (see `finishAsModified`). A no-op once every planned
+ * set is already logged.
+ */
+export function appendPlannedSet(
+  log: ExerciseLog, p: ExercisePrescription, unit: WeightUnit, weight: number,
+): ExerciseLog {
+  const plannedSets = Math.max(1, p.sets[1]);
+  if (log.actualSets.length >= plannedSets) return log;
+  const setNumber = log.actualSets.length + 1;
+  const newSet: ActualSet = { setNumber, reps: p.reps[1], weight, weightUnit: unit, rpe: p.rpe, completed: true };
+  const actualSets = [...log.actualSets, newSet];
+  const status: ExerciseStatus = actualSets.length >= plannedSets ? "completed" : "in_progress";
+  return {
+    ...log,
+    ...baseFromPrescription(p),
+    status,
+    actualSets,
+    modified: false,
+  };
+}
+
+/**
+ * "Finish as modified" — the user intentionally stops logging an in-progress
+ * exercise early (or otherwise wants to finalize it as-is). Preserves
+ * whatever sets are already logged exactly as they are; never fabricates
+ * additional sets to fill out the plan. Terminal: satisfies the workout
+ * completion gate.
+ */
+export function finishAsModified(log: ExerciseLog, p: ExercisePrescription): ExerciseLog {
+  return { ...log, ...baseFromPrescription(p), status: "modified", modified: true };
+}
+
 /** "Skip exercise" — recorded as not done. */
 export function makeSkippedLog(p: ExercisePrescription): ExerciseLog {
   return { ...baseFromPrescription(p), status: "skipped", actualSets: [], sessionFeel: "missed", modified: false };
 }
 
-/** An exercise counts toward completion once it leaves not_started. */
+/** An exercise counts toward workout completion once it reaches a terminal
+ * status (completed/modified/skipped) — "in_progress" does NOT count yet. */
 export function isExerciseLogged(log?: ExerciseLog | null): boolean {
-  return !!log && log.status !== "not_started";
+  return !!log && TERMINAL_STATUSES.includes(log.status);
 }
 
 /** Main slugs that still need an explicit log/skip before the workout can finish. */

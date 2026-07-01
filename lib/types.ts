@@ -162,8 +162,19 @@ export interface ActualSet {
   notes?: string;
 }
 
-/** Explicit logging state — nothing counts as done until the user acts. */
-export type ExerciseStatus = "not_started" | "completed" | "modified" | "skipped";
+/**
+ * Explicit logging state — nothing counts as done until the user acts.
+ *  - not_started: no sets logged.
+ *  - in_progress: at least one set logged via the quick-log path, but not
+ *    every planned set yet — NOT a terminal state; never blocks/satisfies
+ *    workout completion on its own.
+ *  - completed: every planned set logged exactly as planned.
+ *  - modified: the user intentionally finished the exercise with changes or
+ *    fewer sets than planned (via "Edit sets" or "Finish as modified") — a
+ *    terminal state.
+ *  - skipped: the user skipped the exercise — a terminal state.
+ */
+export type ExerciseStatus = "not_started" | "in_progress" | "completed" | "modified" | "skipped";
 
 /** Per-exercise log within a workout. */
 export interface ExerciseLog {
