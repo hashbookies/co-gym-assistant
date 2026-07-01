@@ -12,6 +12,7 @@ import {
 import { getPoolExercise } from "@/lib/data/pool";
 import { suggestProgression } from "@/lib/progression";
 import { CURRENT_LOG_VERSION } from "@/lib/types";
+import { CheckCircleIcon, DumbbellIcon } from "@/components/icons";
 import type { Workout, ExerciseLog, WeightUnit } from "@/lib/types";
 
 export default function TodayPage() {
@@ -20,7 +21,7 @@ export default function TodayPage() {
   const [lastWeights, setLastWeights] = useState<Record<string, number | undefined>>({});
   const [weightUnit, setWeightUnit] = useState<WeightUnit>("lb");
   const [ready, setReady] = useState(false);
-  const [done, setDone] = useState(false);
+  const [summary, setSummary] = useState<{ completed: number; total: number } | null>(null);
 
   useEffect(() => {
     const w = loadCurrentWorkout();
@@ -54,7 +55,10 @@ export default function TodayPage() {
       exercises,
     });
     saveCurrentWorkout(null);
-    setDone(true);
+    setSummary({
+      completed: exercises.filter((e) => e.status !== "skipped").length,
+      total: exercises.length,
+    });
   }
 
   return (
@@ -62,13 +66,18 @@ export default function TodayPage() {
       <AppHeader title="Today's Workout" subtitle="Beginner-friendly · RPE-capped · no failure sets." />
 
       {!ready ? (
-        <div className="card text-sm text-slate-400">Loading…</div>
-      ) : done ? (
-        <div className="card text-center">
-          <p className="text-2xl">✅</p>
-          <p className="mt-1 font-semibold text-slate-800">Logged. Nice work.</p>
-          <p className="mt-1 text-sm text-slate-500">Recovery or a walk on your next day.</p>
-          <Link href="/" className="btn-primary mt-4 w-full">Back to Today</Link>
+        <div className="card text-sm text-stone-400">Loading…</div>
+      ) : summary ? (
+        <div className="card-brand flex flex-col items-center py-8 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-100">
+            <CheckCircleIcon className="h-7 w-7 text-brand-700" />
+          </div>
+          <p className="mt-3 text-lg font-bold text-stone-900">Logged. Nice work.</p>
+          <p className="mt-1 text-sm text-stone-600">
+            {summary.completed}/{summary.total} movements completed today.
+          </p>
+          <p className="mt-1 text-sm text-stone-500">Recovery or a walk on your next day.</p>
+          <Link href="/" className="btn-primary mt-5 w-full">Back to Today</Link>
         </div>
       ) : workout ? (
         <>
@@ -82,9 +91,12 @@ export default function TodayPage() {
           <Disclaimer />
         </>
       ) : (
-        <div className="card">
-          <p className="text-sm text-slate-600">No workout set for today.</p>
-          <Link href="/generator" className="btn-primary mt-3 w-full">Generate one</Link>
+        <div className="card flex flex-col items-center py-8 text-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-100">
+            <DumbbellIcon className="h-5 w-5 text-stone-400" />
+          </div>
+          <p className="mt-3 text-sm text-stone-600">No workout set for today.</p>
+          <Link href="/generator" className="btn-primary mt-4 w-full">Generate one</Link>
         </div>
       )}
     </div>

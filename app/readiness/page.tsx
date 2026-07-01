@@ -6,6 +6,7 @@ import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import { assessReadiness, recommendationLabel, CLINICIAN_NOTE } from "@/lib/readiness";
 import { saveReadiness } from "@/lib/storage";
+import { CheckCircleIcon, AlertIcon, ShieldIcon } from "@/components/icons";
 import type { ReadinessAnswers, ReadinessResult } from "@/lib/types";
 
 const DEFAULTS: ReadinessAnswers = {
@@ -61,35 +62,46 @@ export default function ReadinessPage() {
 
 function Result({ result, onContinue, onRedo }: { result: ReadinessResult; onContinue: () => void; onRedo: () => void }) {
   const rest = result.recommendation === "rest";
+  const lowEnergy = result.recommendation === "low-energy";
+  const tone = rest ? "card-rose" : lowEnergy ? "card-amber" : "card-brand";
+  const Icon = rest ? AlertIcon : CheckCircleIcon;
+  const iconTone = rest ? "text-rose-600" : lowEnergy ? "text-amber-600" : "text-brand-600";
+
   return (
     <section className="space-y-4">
-      <div className={`card ${rest ? "bg-red-50" : result.recommendation === "low-energy" ? "bg-amber-50" : "bg-brand-50"}`}>
-        <p className="text-sm font-bold uppercase tracking-wide text-slate-500">Recommendation</p>
-        <p className="mt-1 text-lg font-bold text-slate-900">{recommendationLabel(result.recommendation)}</p>
+      <div className={tone}>
+        <div className="flex items-center gap-2">
+          <Icon className={`h-5 w-5 ${iconTone}`} />
+          <p className="section-label">Recommendation</p>
+        </div>
+        <p className="mt-2 text-xl font-extrabold text-stone-900">{recommendationLabel(result.recommendation)}</p>
         {result.redFlags.length > 0 && (
-          <p className="mt-2 text-sm text-red-700">Red flags: {result.redFlags.join(", ")}</p>
+          <p className="mt-2 text-sm font-medium text-rose-700">Flags: {result.redFlags.join(", ")}</p>
         )}
         {result.reasons.length > 0 && (
-          <p className="mt-1 text-sm text-slate-600">Notes: {result.reasons.join(", ")}</p>
+          <p className="mt-1 text-sm text-stone-600">Notes: {result.reasons.join(", ")}</p>
         )}
       </div>
 
       {rest ? (
         <div className="card">
-          <p className="font-semibold text-slate-800">Skip hard training today.</p>
-          <ul className="mt-2 list-disc pl-5 text-sm text-slate-600">
-            <li>Rest, or a gentle 10–15 min walk</li>
-            <li>Light mobility or stretching only</li>
-            <li>Hydrate and eat if you can</li>
+          <p className="font-semibold text-stone-800">Skip hard training today — that&apos;s the right call, not a setback.</p>
+          <ul className="mt-3 space-y-1.5 text-sm text-stone-600">
+            <li className="flex gap-2"><span className="text-brand-500">·</span> Rest, or a gentle 10–15 min walk</li>
+            <li className="flex gap-2"><span className="text-brand-500">·</span> Light mobility or stretching only</li>
+            <li className="flex gap-2"><span className="text-brand-500">·</span> Hydrate and eat if you can</li>
           </ul>
-          <p className="mt-3 text-xs text-amber-800">{CLINICIAN_NOTE}</p>
+          <p className="mt-3 flex items-start gap-1.5 text-xs text-stone-500">
+            <ShieldIcon className="mt-0.5 h-3.5 w-3.5 flex-none text-stone-400" />
+            {CLINICIAN_NOTE}
+          </p>
           <button className="btn-secondary mt-3 w-full" onClick={onRedo}>Re-check</button>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-3">
           <button className="btn-secondary" onClick={onRedo}>Re-check</button>
           <button className="btn-primary" onClick={onContinue}>
-            {result.recommendation === "low-energy" ? "Low-energy workout" : "Generate workout"}
+            {lowEnergy ? "Low-energy workout" : "Generate workout"}
           </button>
         </div>
       )}
@@ -102,12 +114,12 @@ function Choice({ label, value, onChange, options }: {
 }) {
   return (
     <div className="card">
-      <p className="mb-2 text-sm font-semibold text-slate-700">{label}</p>
+      <p className="mb-2 text-sm font-semibold text-stone-700">{label}</p>
       <div className="flex flex-wrap gap-2">
         {options.map(([val, lbl]) => (
           <button key={val} onClick={() => onChange(val)}
-            className={`rounded-lg px-3 py-1.5 text-xs font-medium ${
-              value === val ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600"
+            className={`rounded-lg px-3 py-1.5 text-xs font-medium transition ${
+              value === val ? "bg-brand-600 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"
             }`}>
             {lbl}
           </button>
@@ -119,10 +131,10 @@ function Choice({ label, value, onChange, options }: {
 
 function ToggleRow({ label, value, onChange }: { label: string; value: boolean; onChange: (v: boolean) => void }) {
   return (
-    <div className="card flex items-center justify-between">
-      <p className="text-sm font-semibold text-slate-700">{label}</p>
+    <div className="card flex items-center justify-between gap-3">
+      <p className="text-sm font-semibold text-stone-700">{label}</p>
       <button onClick={() => onChange(!value)}
-        className={`rounded-full px-4 py-1.5 text-xs font-semibold ${value ? "bg-red-500 text-white" : "bg-slate-100 text-slate-600"}`}>
+        className={`flex-none rounded-full px-4 py-1.5 text-xs font-semibold transition ${value ? "bg-rose-500 text-white" : "bg-stone-100 text-stone-600"}`}>
         {value ? "Yes" : "No"}
       </button>
     </div>

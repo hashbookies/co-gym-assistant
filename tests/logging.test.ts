@@ -63,3 +63,18 @@ describe("honest logging: completion gate", () => {
     expect(pendingExercises(["b", "c"], logs)).toEqual([]);
   });
 });
+
+describe("honest logging: guided timer cannot auto-log", () => {
+  it("a finished exercise timer has no code path to mark a log completed", () => {
+    // There is no "timerFinished" flag or coupling in lib/logs.ts — starting or
+    // finishing the guidance timer never touches the exercise log. Only the
+    // explicit builders (makePlannedLog / editing / makeSkippedLog) can change
+    // status away from not_started.
+    const log = makeNotStartedLog(presc({ slug: "timer-only" }));
+    expect(log.status).toBe("not_started");
+    expect(log.actualSets).toEqual([]);
+    // Simulating "time's up" is just... nothing happens to the log:
+    expect(isExerciseLogged(log)).toBe(false);
+    expect(pendingExercises(["timer-only"], { "timer-only": log })).toEqual(["timer-only"]);
+  });
+});

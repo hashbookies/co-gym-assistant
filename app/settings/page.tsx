@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import { loadSettings, saveSettings, DEFAULT_SETTINGS } from "@/lib/storage";
+import { DumbbellIcon, GearIcon, CheckCircleIcon } from "@/components/icons";
 import type { Settings } from "@/lib/types";
 
 export default function SettingsPage() {
@@ -25,14 +26,17 @@ export default function SettingsPage() {
     setSaved(true);
   }
 
-  if (!ready) return <div className="card text-sm text-slate-400">Loading…</div>;
+  if (!ready) return <div className="card text-sm text-stone-400">Loading…</div>;
 
   return (
     <div className="space-y-4">
       <AppHeader title="Settings" subtitle="Your equipment and training preferences." />
 
       <section className="card space-y-3">
-        <p className="text-sm font-bold uppercase tracking-wide text-slate-500">Equipment</p>
+        <div className="flex items-center gap-2">
+          <DumbbellIcon className="h-4 w-4 text-brand-600" />
+          <p className="section-label">Equipment</p>
+        </div>
         <SwitchRow label="Dumbbells" value={s.equipment.dumbbell}
           onChange={(v) => update({ equipment: { ...s.equipment, dumbbell: v } })} />
         <SwitchRow label="Resistance bands (handles)" value={s.equipment.band}
@@ -42,8 +46,8 @@ export default function SettingsPage() {
       </section>
 
       <section className="card space-y-3">
-        <p className="text-sm font-bold uppercase tracking-wide text-slate-500">Advanced equipment</p>
-        <p className="text-xs text-slate-500">
+        <p className="section-label">Advanced equipment</p>
+        <p className="text-xs leading-relaxed text-stone-500">
           Off by default. Enabling these unlocks exercises that need them — the generator
           excludes anchor/bench/bar exercises unless turned on here.
         </p>
@@ -53,31 +57,30 @@ export default function SettingsPage() {
         <SwitchRow label="Pull-up bar" value={s.hasPullupBar} onChange={(v) => update({ hasPullupBar: v })} />
       </section>
 
-      <section className="card space-y-3">
-        <p className="text-sm font-bold uppercase tracking-wide text-slate-500">Training</p>
+      <section className="card space-y-4">
+        <div className="flex items-center gap-2">
+          <GearIcon className="h-4 w-4 text-brand-600" />
+          <p className="section-label">Training</p>
+        </div>
         <NumberRow label="Training days / week" value={s.trainingDays} min={2} max={5}
           onChange={(v) => update({ trainingDays: v })} />
         <div>
-          <p className="mb-1.5 text-sm font-semibold text-slate-700">Session length</p>
-          <div className="grid grid-cols-4 gap-2">
+          <p className="mb-1.5 text-sm font-semibold text-stone-700">Session length</p>
+          <div className="segmented">
             {[20, 30, 45, 60].map((d) => (
               <button key={d} onClick={() => update({ durationMin: d })}
-                className={`rounded-lg px-2 py-2 text-xs font-semibold ${
-                  s.durationMin === d ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600"
-                }`}>
+                className={`segmented-item ${s.durationMin === d ? "segmented-item-active" : ""}`}>
                 {d}m
               </button>
             ))}
           </div>
         </div>
         <div>
-          <p className="mb-1.5 text-sm font-semibold text-slate-700">Default weight unit</p>
-          <div className="grid grid-cols-2 gap-2">
+          <p className="mb-1.5 text-sm font-semibold text-stone-700">Default weight unit</p>
+          <div className="segmented">
             {(["lb", "kg"] as const).map((u) => (
               <button key={u} onClick={() => update({ weightUnit: u })}
-                className={`rounded-lg px-2 py-2 text-xs font-semibold uppercase ${
-                  s.weightUnit === u ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600"
-                }`}>
+                className={`segmented-item uppercase ${s.weightUnit === u ? "segmented-item-active" : ""}`}>
                 {u}
               </button>
             ))}
@@ -85,7 +88,9 @@ export default function SettingsPage() {
         </div>
       </section>
 
-      <button className="btn-primary w-full" onClick={save}>{saved ? "Saved ✓" : "Save settings"}</button>
+      <button className="btn-primary w-full" onClick={save}>
+        {saved ? <><CheckCircleIcon className="h-4 w-4" /> Saved</> : "Save settings"}
+      </button>
       <Disclaimer />
     </div>
   );
@@ -93,11 +98,11 @@ export default function SettingsPage() {
 
 function SwitchRow({ label, value, onChange }: { label: string; value: boolean; onChange: (v: boolean) => void }) {
   return (
-    <div className="flex items-center justify-between">
-      <span className="text-sm text-slate-700">{label}</span>
+    <div className="flex items-center justify-between gap-3">
+      <span className="text-sm text-stone-700">{label}</span>
       <button onClick={() => onChange(!value)}
-        className={`relative h-6 w-11 rounded-full transition ${value ? "bg-brand-600" : "bg-slate-300"}`}>
-        <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white transition ${value ? "left-[22px]" : "left-0.5"}`} />
+        className={`relative h-6 w-11 flex-none rounded-full transition ${value ? "bg-brand-600" : "bg-stone-300"}`}>
+        <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition ${value ? "left-[22px]" : "left-0.5"}`} />
       </button>
     </div>
   );
@@ -108,7 +113,7 @@ function NumberRow({ label, value, min, max, onChange }: {
 }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-sm text-slate-700">{label}</span>
+      <span className="text-sm text-stone-700">{label}</span>
       <div className="flex items-center gap-3">
         <button className="btn-secondary px-3 py-1" onClick={() => onChange(Math.max(min, value - 1))}>−</button>
         <span className="w-6 text-center font-semibold">{value}</span>

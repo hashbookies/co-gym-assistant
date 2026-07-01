@@ -8,6 +8,7 @@ import WorkoutView from "@/components/WorkoutView";
 import { getPool } from "@/lib/data/pool";
 import { generateWorkout } from "@/lib/generator";
 import { loadSettings, saveCurrentWorkout, loadReadiness, nextDayIndex } from "@/lib/storage";
+import { BoltIcon } from "@/components/icons";
 import type { Workout, WorkoutMode } from "@/lib/types";
 
 export default function GeneratorPage() {
@@ -37,34 +38,40 @@ export default function GeneratorPage() {
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 pb-4">
       <AppHeader title="Workout Generator" subtitle="Uses only the curated, equipment-clean pool." />
 
       <section className="card space-y-4">
         <div>
-          <p className="mb-1.5 text-sm font-semibold text-slate-700">Intensity</p>
-          <div className="grid grid-cols-2 gap-2">
-            <Toggle active={mode === "normal"} onClick={() => setMode("normal")}>Normal (RPE ≤ 7)</Toggle>
-            <Toggle active={mode === "low-energy"} onClick={() => setMode("low-energy")}>Low energy (RPE 5–6)</Toggle>
+          <p className="section-label mb-2">Intensity</p>
+          <div className="segmented">
+            <Segment active={mode === "normal"} onClick={() => setMode("normal")}>Normal · RPE ≤ 7</Segment>
+            <Segment active={mode === "low-energy"} onClick={() => setMode("low-energy")}>Low energy · RPE 5–6</Segment>
           </div>
         </div>
 
         <div>
-          <p className="mb-1.5 text-sm font-semibold text-slate-700">Day in 3-day cycle</p>
-          <div className="grid grid-cols-3 gap-2">
+          <p className="section-label mb-2">Day in 3-day cycle</p>
+          <div className="segmented">
             {["A · Squat", "B · Hinge", "C · Lunge"].map((label, i) => (
-              <Toggle key={i} active={dayIndex === i} onClick={() => setDayIndex(i)}>{label}</Toggle>
+              <Segment key={i} active={dayIndex === i} onClick={() => setDayIndex(i)}>{label}</Segment>
             ))}
           </div>
         </div>
 
-        <button className="btn-primary w-full" onClick={build}>Generate workout</button>
+        <button className="btn-primary w-full" onClick={build}>
+          <BoltIcon className="h-4 w-4" /> Generate workout
+        </button>
       </section>
 
       {preview && (
         <>
           <WorkoutView workout={preview} />
-          <button className="btn-primary w-full" onClick={setAsToday}>Set as today&apos;s workout</button>
+          <div className="sticky bottom-24 z-10 -mx-4 border-t border-stone-200/80 bg-stone-50/90 px-4 pb-2 pt-3 backdrop-blur">
+            <button className="btn-primary w-full shadow-lifted" onClick={setAsToday}>
+              Set as today&apos;s workout
+            </button>
+          </div>
         </>
       )}
 
@@ -73,14 +80,9 @@ export default function GeneratorPage() {
   );
 }
 
-function Toggle({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function Segment({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
-    <button
-      onClick={onClick}
-      className={`rounded-xl px-3 py-2.5 text-xs font-semibold transition ${
-        active ? "bg-brand-600 text-white" : "border border-slate-300 bg-white text-slate-600"
-      }`}
-    >
+    <button onClick={onClick} className={`segmented-item ${active ? "segmented-item-active" : ""}`}>
       {children}
     </button>
   );
