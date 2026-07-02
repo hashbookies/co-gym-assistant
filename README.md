@@ -17,6 +17,7 @@ It is designed to be a focused training companion on your phone: workout instruc
 ## 🎬 Core Workflows in Action
 
 ### 1. Check in & Generate Session
+
 Check your readiness — including soreness, fatigue, and sleep — to receive a workout recommendation that adapts the session intensity.
 
 <div align="center">
@@ -24,6 +25,7 @@ Check your readiness — including soreness, fatigue, and sleep — to receive a
 </div>
 
 ### 2. Log a Set & Follow the Rest Timer
+
 Log sets as planned or custom-adjusted. The app automatically triggers a rest countdown timer with an audio beep completion alert before highlighting the next set.
 
 <div align="center">
@@ -48,7 +50,7 @@ Log sets as planned or custom-adjusted. The app automatically triggers a rest co
 ## 📸 Screenshots Gallery
 
 | 🏋️ active workout screen | ⚙️ settings / backup |
-|:---:|:---:|
+| :---: | :---: |
 | <img src="docs/assets/screenshots/today_state.png" width="360" alt="Active Workout" /> | <img src="docs/assets/screenshots/settings_backup.png" width="360" alt="Settings Backup" /> |
 | **📊 readiness check-in** | **🕒 rest timer active** |
 | <img src="docs/assets/screenshots/readiness_result.png" width="360" alt="Readiness Result" /> | <img src="docs/assets/screenshots/rest_timer.png" width="360" alt="Rest Timer" /> |
@@ -121,6 +123,7 @@ Log sets as planned or custom-adjusted. The app automatically triggers a rest co
 ## 🗃️ Data & Exercise Library
 
 The exercise list and media libraries are curated from an open exercise dataset and filtered for home-friendly movements. To keep the repository size clean and fast to download:
+
 - The base dataset file is kept out of Git tracking.
 - Media folder outputs are generated locally during the `npm run sync:media` step.
 - The source dataset includes multilingual instruction fields; the current app experience is focused on English workout guidance.

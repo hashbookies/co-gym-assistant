@@ -1,59 +1,18 @@
-__pycache__/
-*.pyc
-.DS_Store
-.venv/
-*.zip
-
-# Next.js / Node
+# Dependencies & Build Outputs
 node_modules/
 .next/
 out/
-next-env.d.ts
-*.tsbuildinfo
-.vercel
-npm-debug.log*
+dist/
+coverage/
+.cache/
+.vercel/
 
-# Env / local / cache
+# Environments & Private Configs
 .env
 .env.*
 *.local
-coverage/
-.cache/
 
-# Large exercise media — kept OUT of git (138MB). Sourced from the dataset and
-# synced into public via scripts/sync-media.js.
-/images/
-/videos/
-/public/images/
-/public/videos/
-
-# Exceptions for README sample images & videos
-!/images/0025-EIeI8Vf.jpg
-!/images/0032-ila4NZS.jpg
-!/images/0043-qXTaZnJ.jpg
-!/images/0294-NbVPDMW.jpg
-!/images/0652-lBDjFxJ.jpg
-!/images/0334-DsgkuIt.jpg
-!/videos/0025-EIeI8Vf.gif
-!/videos/0032-ila4NZS.gif
-!/videos/0043-qXTaZnJ.gif
-!/videos/0294-NbVPDMW.gif
-!/videos/0652-lBDjFxJ.gif
-!/videos/0334-DsgkuIt.gif
-
-
-# Raw + intermediate pipeline data (large / regenerable). The app and
-# `npm run build:pool` only need exercises.tagged.json + mvp-pool.json, which
-# ARE tracked. exercises.json is the 8.3MB raw source dataset.
-/data/exercises.json
-/data/exercises.normalized.json
-/data/exercises.final.json
-
-# Legacy prototype files — superseded by the Next.js app, kept locally but not tracked.
-/index.html
-/setup.html
-
-# Editor / Agent configuration
+# Editor & Local Agent Files
 CLAUDE.md
 claude.md
 CLAUDE.local.md
@@ -64,15 +23,23 @@ CLAUDE.local.md
 .mcp.json
 
 # Logs
+npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 *.log
 
-# Build targets & coverage
-dist/
-coverage/
-
-# OS files
+# OS System Files
+.DS_Store
 Thumbs.db
 
+# Raw Data & Intermediate Pipeline Files
+data/exercises.json
+data/exercises.normalized.json
+data/exercises.final.json
+
+# Media Sync & Large Asset Folders
+images/
+videos/
+public/images/
+public/videos/
