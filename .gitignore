@@ -27,6 +27,21 @@ coverage/
 /public/images/
 /public/videos/
 
+# Exceptions for README sample images & videos
+!/images/0025-EIeI8Vf.jpg
+!/images/0032-ila4NZS.jpg
+!/images/0043-qXTaZnJ.jpg
+!/images/0294-NbVPDMW.jpg
+!/images/0652-lBDjFxJ.jpg
+!/images/0334-DsgkuIt.jpg
+!/videos/0025-EIeI8Vf.gif
+!/videos/0032-ila4NZS.gif
+!/videos/0043-qXTaZnJ.gif
+!/videos/0294-NbVPDMW.gif
+!/videos/0652-lBDjFxJ.gif
+!/videos/0334-DsgkuIt.gif
+
+
 # Raw + intermediate pipeline data (large / regenerable). The app and
 # `npm run build:pool` only need exercises.tagged.json + mvp-pool.json, which
 # ARE tracked. exercises.json is the 8.3MB raw source dataset.
