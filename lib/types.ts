@@ -202,6 +202,9 @@ export interface WorkoutLog {
   date: string; // ISO
   exercises: ExerciseLog[];
   note?: string;
+  /** Readiness snapshot at the time this workout was logged, if any was
+   * recorded. Older logs won't have this — it's optional everywhere. */
+  readiness?: ReadinessResult;
 }
 
 /** @deprecated v1 per-exercise shape — retained ONLY for migration of old logs. */

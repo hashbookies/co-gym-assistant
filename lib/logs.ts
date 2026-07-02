@@ -13,6 +13,12 @@ function prettifySlug(slug: string): string {
   return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/** Stable, collision-resistant id for a freshly-completed workout log — used
+ * as the lookup key for the history detail/edit/delete routes. */
+export function generateLogId(): string {
+  return `log_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
 const STATUSES: ExerciseStatus[] = ["not_started", "in_progress", "completed", "modified", "skipped"];
 function asStatus(v: unknown, fallback: ExerciseStatus): ExerciseStatus {
   return typeof v === "string" && (STATUSES as string[]).includes(v) ? (v as ExerciseStatus) : fallback;
@@ -122,6 +128,61 @@ export function pendingExercises(mainSlugs: string[], logsBySlug: Record<string,
   return mainSlugs.filter((s) => !isExerciseLogged(logsBySlug[s]));
 }
 
+// ---------------------------------------------------------------------------
+// Editing a SAVED historical log (Phase 3C). A saved log is always a finished
+// session, so only terminal statuses make sense here — not_started/in_progress
+// are pre-completion states and never valid on a history entry.
+// ---------------------------------------------------------------------------
+
+/** Statuses selectable when editing a saved log — a finished session can only
+ * ever be completed, modified, or skipped. */
+export const EDITABLE_STATUSES: ExerciseStatus[] = ["completed", "modified", "skipped"];
+
+/**
+ * Auto-correct a silently-invalid status/actualSets combination before an
+ * edit is saved — e.g. "completed" claimed without every planned set actually
+ * recorded as done. Never fabricates sets to make a claim true; only ever
+ * downgrades the status to stay honest. "Skipped" always means nothing was
+ * done, so it clears any stray actualSets rather than showing set data next
+ * to a "skipped" label.
+ */
+export function normalizeEditedExerciseLog(log: ExerciseLog): ExerciseLog {
+  if (log.status === "skipped") {
+    return log.actualSets.length === 0 ? log : { ...log, actualSets: [] };
+  }
+  const allPlannedSetsDone = log.actualSets.length >= log.plannedSets && log.actualSets.every((s) => s.completed);
+  if (log.status === "completed" && !allPlannedSetsDone) {
+    return { ...log, status: "modified", modified: true };
+  }
+  // Defensive: not_started/in_progress are not valid on a saved log at all —
+  // the edit UI never offers them, but normalize defensively if they arrive.
+  if (log.status === "not_started" || log.status === "in_progress") {
+    return log.actualSets.length > 0
+      ? { ...log, status: "modified", modified: true }
+      : { ...log, status: "skipped", actualSets: [] };
+  }
+  return log;
+}
+
+/** Look up a single log by id. */
+export function findLog(logs: WorkoutLog[], id: string): WorkoutLog | undefined {
+  return logs.find((l) => l.id === id);
+}
+
+/** Replace one log by id with an edited version, normalizing every exercise
+ * so an edit can never silently save a dishonest status. Leaves every other
+ * log untouched. A no-op (returns the same array reference) if the id isn't found. */
+export function replaceLog(logs: WorkoutLog[], updated: WorkoutLog): WorkoutLog[] {
+  if (!logs.some((l) => l.id === updated.id)) return logs;
+  const normalized: WorkoutLog = { ...updated, exercises: updated.exercises.map(normalizeEditedExerciseLog) };
+  return logs.map((l) => (l.id === normalized.id ? normalized : l));
+}
+
+/** Remove one log by id. A no-op if the id isn't found. */
+export function removeLog(logs: WorkoutLog[], id: string): WorkoutLog[] {
+  return logs.filter((l) => l.id !== id);
+}
+
 const FEELS: SessionFeel[] = ["easy", "good", "hard", "missed"];
 function asFeel(v: unknown, fallback: SessionFeel): SessionFeel {
   return typeof v === "string" && (FEELS as string[]).includes(v) ? (v as SessionFeel) : fallback;
@@ -192,6 +253,20 @@ function asExerciseLog(e: any): ExerciseLog | null {
  * Migrate a single raw log (any historical shape) into a current WorkoutLog.
  * Returns null if the record is too corrupt to recover.
  */
+const READINESS_RECOMMENDATIONS = ["normal", "low-energy", "rest"];
+
+/** Defensively coerce a stored readiness snapshot — undefined if it's missing
+ * or doesn't look like a real ReadinessResult (older logs never had one). */
+function asReadinessResult(v: any): WorkoutLog["readiness"] {
+  if (!v || typeof v !== "object" || !READINESS_RECOMMENDATIONS.includes(v.recommendation)) return undefined;
+  return {
+    recommendation: v.recommendation,
+    redFlags: Array.isArray(v.redFlags) ? v.redFlags.filter((f: unknown) => typeof f === "string") : [],
+    reasons: Array.isArray(v.reasons) ? v.reasons.filter((r: unknown) => typeof r === "string") : [],
+    date: typeof v.date === "string" ? v.date : new Date(0).toISOString(),
+  };
+}
+
 export function migrateLog(raw: any): WorkoutLog | null {
   if (!raw || typeof raw !== "object") return null;
 
@@ -202,6 +277,7 @@ export function migrateLog(raw: any): WorkoutLog | null {
     mode: raw.mode === "low-energy" ? "low-energy" : "normal",
     date: typeof raw.date === "string" ? raw.date : new Date(0).toISOString(),
     note: typeof raw.note === "string" ? raw.note : undefined,
+    readiness: asReadinessResult(raw.readiness),
   } as const;
 
   // Already current shape.

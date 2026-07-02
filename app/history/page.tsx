@@ -39,24 +39,26 @@ export default function HistoryPage() {
             const total = l.exercises.length;
             const done = l.exercises.filter((e) => e.status !== "skipped").length;
             return (
-              <li key={l.id} className="card">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-brand-50">
-                    <DumbbellIcon className="h-4 w-4 text-brand-600" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="truncate font-semibold text-stone-900">{l.title}</p>
-                      <span className={`pill flex-none ${l.mode === "low-energy" ? "pill-amber" : "pill-brand"}`}>
-                        {l.mode === "low-energy" ? "low energy" : "normal"}
-                      </span>
+              <li key={l.id}>
+                <Link href={`/history/${l.id}`} className="card block transition active:scale-[0.99]">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-brand-50">
+                      <DumbbellIcon className="h-4 w-4 text-brand-600" />
                     </div>
-                    <p className="mt-0.5 text-xs text-stone-500">
-                      {new Date(l.date).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
-                      {" · "}{done}/{total} movements completed
-                    </p>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="truncate font-semibold text-stone-900">{l.title}</p>
+                        <span className={`pill flex-none ${l.mode === "low-energy" ? "pill-amber" : "pill-brand"}`}>
+                          {l.mode === "low-energy" ? "low energy" : "normal"}
+                        </span>
+                      </div>
+                      <p className="mt-0.5 text-xs text-stone-500">
+                        {new Date(l.date).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
+                        {" · "}{done}/{total} movements completed
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </li>
             );
           })}

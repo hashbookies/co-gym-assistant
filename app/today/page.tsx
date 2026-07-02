@@ -11,30 +11,34 @@ import {
 } from "@/lib/storage";
 import { getPoolExercise } from "@/lib/data/pool";
 import { suggestProgression } from "@/lib/progression";
+import { generateLogId } from "@/lib/logs";
 import { CURRENT_LOG_VERSION } from "@/lib/types";
-import { CheckCircleIcon, DumbbellIcon } from "@/components/icons";
-import type { Workout, ExerciseLog, WeightUnit } from "@/lib/types";
+import { CheckCircleIcon, DumbbellIcon, AlertIcon } from "@/components/icons";
+import type { Workout, ExerciseLog, ReadinessResult, WeightUnit } from "@/lib/types";
 
 export default function TodayPage() {
   const [workout, setWorkout] = useState<Workout | null>(null);
   const [hints, setHints] = useState<Record<string, string>>({});
   const [lastWeights, setLastWeights] = useState<Record<string, number | undefined>>({});
   const [weightUnit, setWeightUnit] = useState<WeightUnit>("lb");
+  const [readiness, setReadiness] = useState<ReadinessResult | null>(null);
   const [ready, setReady] = useState(false);
   const [summary, setSummary] = useState<{ completed: number; total: number } | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
     const w = loadCurrentWorkout();
     setWorkout(w);
     setWeightUnit(loadSettings().weightUnit);
     if (w) {
-      const readiness = loadReadiness();
+      const r = loadReadiness();
+      setReadiness(r);
       const h: Record<string, string> = {};
       const lw: Record<string, number | undefined> = {};
       for (const m of w.main) {
         const ex = getPoolExercise(m.slug);
         if (!ex) continue;
-        const sug = suggestProgression(ex, lastExerciseLog(m.slug), readiness);
+        const sug = suggestProgression(ex, lastExerciseLog(m.slug), r);
         if (sug.action !== "establish") h[m.slug] = sug.text;
         lw[m.slug] = lastWeight(m.slug);
       }
@@ -45,15 +49,24 @@ export default function TodayPage() {
   }, []);
 
   function complete(w: Workout, exercises: ExerciseLog[]) {
-    addLog({
+    const result = addLog({
       version: CURRENT_LOG_VERSION,
-      id: `log_${Date.now()}`,
+      id: generateLogId(),
       workoutId: w.id,
       title: w.title,
       mode: w.mode,
       date: new Date().toISOString(),
       exercises,
+      ...(readiness ? { readiness } : {}),
     });
+    if (!result.ok) {
+      // Do not clear the current workout or claim it was logged — keep
+      // everything in place so the user can retry (e.g. after freeing up
+      // storage) without losing their just-finished session.
+      setSaveError(result.error);
+      return;
+    }
+    setSaveError(null);
     saveCurrentWorkout(null);
     setSummary({
       completed: exercises.filter((e) => e.status !== "skipped").length,
@@ -81,6 +94,11 @@ export default function TodayPage() {
         </div>
       ) : workout ? (
         <>
+          {saveError && (
+            <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+              <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError} Your workout is still here — try "Mark workout complete" again.
+            </p>
+          )}
           <WorkoutView
             workout={workout}
             hints={hints}

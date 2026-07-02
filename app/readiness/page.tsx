@@ -18,6 +18,7 @@ export default function ReadinessPage() {
   const router = useRouter();
   const [a, setA] = useState<ReadinessAnswers>(DEFAULTS);
   const [result, setResult] = useState<ReadinessResult | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   function set<K extends keyof ReadinessAnswers>(k: K, v: ReadinessAnswers[K]) {
     setA((prev) => ({ ...prev, [k]: v }));
@@ -25,7 +26,10 @@ export default function ReadinessPage() {
 
   function submit() {
     const r = assessReadiness(a);
-    saveReadiness(r);
+    const saveResult = saveReadiness(r);
+    setSaveError(saveResult.ok ? null : "Could not save readiness check. Your browser storage may be full.");
+    // Still show the result in memory even if the save failed — the user
+    // already answered the questions and should be able to read it.
     setResult(r);
   }
 
@@ -54,13 +58,20 @@ export default function ReadinessPage() {
           <Disclaimer />
         </section>
       ) : (
-        <Result result={result} onContinue={() => router.push("/generator")} onRedo={() => setResult(null)} />
+        <Result
+          result={result}
+          saveError={saveError}
+          onContinue={() => router.push("/generator")}
+          onRedo={() => { setResult(null); setSaveError(null); }}
+        />
       )}
     </div>
   );
 }
 
-function Result({ result, onContinue, onRedo }: { result: ReadinessResult; onContinue: () => void; onRedo: () => void }) {
+function Result({ result, saveError, onContinue, onRedo }: {
+  result: ReadinessResult; saveError: string | null; onContinue: () => void; onRedo: () => void;
+}) {
   const rest = result.recommendation === "rest";
   const lowEnergy = result.recommendation === "low-energy";
   const tone = rest ? "card-rose" : lowEnergy ? "card-amber" : "card-brand";
@@ -69,6 +80,11 @@ function Result({ result, onContinue, onRedo }: { result: ReadinessResult; onCon
 
   return (
     <section className="space-y-4">
+      {saveError && (
+        <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+          <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
+        </p>
+      )}
       <div className={tone}>
         <div className="flex items-center gap-2">
           <Icon className={`h-5 w-5 ${iconTone}`} />

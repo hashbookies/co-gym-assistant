@@ -8,7 +8,7 @@ import WorkoutView from "@/components/WorkoutView";
 import { getPool } from "@/lib/data/pool";
 import { generateWorkout } from "@/lib/generator";
 import { loadSettings, saveCurrentWorkout, loadReadiness, nextDayIndex } from "@/lib/storage";
-import { BoltIcon } from "@/components/icons";
+import { BoltIcon, AlertIcon } from "@/components/icons";
 import type { Workout, WorkoutMode } from "@/lib/types";
 
 export default function GeneratorPage() {
@@ -16,6 +16,7 @@ export default function GeneratorPage() {
   const [mode, setMode] = useState<WorkoutMode>("normal");
   const [dayIndex, setDayIndex] = useState(0);
   const [preview, setPreview] = useState<Workout | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   // Seed defaults from the last readiness result and the rotating day index.
   useEffect(() => {
@@ -29,11 +30,19 @@ export default function GeneratorPage() {
   function build() {
     const w = generateWorkout(getPool(), settings, { mode, dayIndex, seed: "user" });
     setPreview(w);
+    setSaveError(null);
   }
 
   function setAsToday() {
     if (!preview) return;
-    saveCurrentWorkout(preview);
+    const result = saveCurrentWorkout(preview);
+    if (!result.ok) {
+      // Keep the generated workout visible so the user can retry — never
+      // navigate away as if it were saved.
+      setSaveError("Could not save this workout. Your browser storage may be full.");
+      return;
+    }
+    setSaveError(null);
     router.push("/today");
   }
 
@@ -67,7 +76,12 @@ export default function GeneratorPage() {
       {preview && (
         <>
           <WorkoutView workout={preview} />
-          <div className="sticky bottom-24 z-10 -mx-4 border-t border-stone-200/80 bg-stone-50/90 px-4 pb-2 pt-3 backdrop-blur">
+          <div className="sticky bottom-24 z-10 -mx-4 space-y-2 border-t border-stone-200/80 bg-stone-50/90 px-4 pb-2 pt-3 backdrop-blur">
+            {saveError && (
+              <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+                <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
+              </p>
+            )}
             <button className="btn-primary w-full shadow-lifted" onClick={setAsToday}>
               Set as today&apos;s workout
             </button>
