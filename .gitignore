@@ -43,3 +43,7 @@ images/
 videos/
 public/images/
 public/videos/
+
+# Legacy prototype/development setup pages
+index.html
+setup.html
