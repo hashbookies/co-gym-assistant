@@ -13,6 +13,7 @@ import { getPoolExercise } from "@/lib/data/pool";
 import { suggestProgression } from "@/lib/progression";
 import { generateLogId } from "@/lib/logs";
 import { CURRENT_LOG_VERSION } from "@/lib/types";
+import { MotionPage, PopIn } from "@/components/motion";
 import { CheckCircleIcon, DumbbellIcon, AlertIcon } from "@/components/icons";
 import type { Workout, ExerciseLog, ReadinessResult, WeightUnit } from "@/lib/types";
 
@@ -75,13 +76,13 @@ export default function TodayPage() {
   }
 
   return (
-    <div className="space-y-5">
+    <MotionPage className="space-y-5">
       <AppHeader title="Today's Workout" subtitle="Beginner-friendly · RPE-capped · no failure sets." />
 
       {!ready ? (
         <div className="card text-sm text-stone-400">Loading…</div>
       ) : summary ? (
-        <div className="card-brand flex flex-col items-center py-8 text-center">
+        <PopIn className="card-brand flex flex-col items-center py-8 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-100">
             <CheckCircleIcon className="h-7 w-7 text-brand-700" />
           </div>
@@ -91,13 +92,15 @@ export default function TodayPage() {
           </p>
           <p className="mt-1 text-sm text-stone-500">Recovery or a walk on your next day.</p>
           <Link href="/" className="btn-primary mt-5 w-full">Back to Today</Link>
-        </div>
+        </PopIn>
       ) : workout ? (
         <>
           {saveError && (
-            <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-              <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError} Your workout is still here — try "Mark workout complete" again.
-            </p>
+            <PopIn>
+              <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+                <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError} Your workout is still here — try "Mark workout complete" again.
+              </p>
+            </PopIn>
           )}
           <WorkoutView
             workout={workout}
@@ -117,6 +120,6 @@ export default function TodayPage() {
           <Link href="/generator" className="btn-primary mt-4 w-full">Generate one</Link>
         </div>
       )}
-    </div>
+    </MotionPage>
   );
 }

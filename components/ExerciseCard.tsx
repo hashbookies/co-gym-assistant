@@ -101,7 +101,7 @@ export default function ExerciseCard({
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border border-stone-200/70 bg-stone-50 py-1.5">
-      <dt className="text-[10px] uppercase tracking-wide text-stone-400">{label}</dt>
+      <dt className="font-mono text-[10px] uppercase tracking-[0.1em] text-stone-400">{label}</dt>
       <dd className="text-sm font-semibold text-stone-800">{value}</dd>
     </div>
   );

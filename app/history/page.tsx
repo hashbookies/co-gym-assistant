@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import AppHeader from "@/components/AppHeader";
 import { loadLogs } from "@/lib/storage";
+import { MotionPage, AnimatedCard } from "@/components/motion";
 import { ChartIcon, DumbbellIcon } from "@/components/icons";
 import type { WorkoutLog } from "@/lib/types";
 
@@ -17,7 +18,7 @@ export default function HistoryPage() {
   }, []);
 
   return (
-    <div className="space-y-4">
+    <MotionPage className="space-y-4">
       <AppHeader
         title="History"
         subtitle={ready ? (logs.length ? `${logs.length} workout${logs.length === 1 ? "" : "s"} logged` : "Your logged workouts will show up here") : undefined}
@@ -35,11 +36,12 @@ export default function HistoryPage() {
         </div>
       ) : (
         <ul className="space-y-2.5">
-          {logs.map((l) => {
+          {logs.map((l, i) => {
             const total = l.exercises.length;
             const done = l.exercises.filter((e) => e.status !== "skipped").length;
             return (
               <li key={l.id}>
+                <AnimatedCard index={i} interactive>
                 <Link href={`/history/${l.id}`} className="card block transition active:scale-[0.99]">
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-brand-50">
@@ -59,11 +61,12 @@ export default function HistoryPage() {
                     </div>
                   </div>
                 </Link>
+                </AnimatedCard>
               </li>
             );
           })}
         </ul>
       )}
-    </div>
+    </MotionPage>
   );
 }

@@ -8,6 +8,7 @@ import WorkoutView from "@/components/WorkoutView";
 import { getPool } from "@/lib/data/pool";
 import { generateWorkout } from "@/lib/generator";
 import { loadSettings, saveCurrentWorkout, loadReadiness, nextDayIndex } from "@/lib/storage";
+import { MotionPage, PopIn } from "@/components/motion";
 import { BoltIcon, AlertIcon } from "@/components/icons";
 import type { Workout, WorkoutMode } from "@/lib/types";
 
@@ -47,7 +48,7 @@ export default function GeneratorPage() {
   }
 
   return (
-    <div className="space-y-5 pb-4">
+    <MotionPage className="space-y-5 pb-4">
       <AppHeader title="Workout Generator" subtitle="Uses only the curated, equipment-clean pool." />
 
       <section className="card space-y-4">
@@ -74,23 +75,25 @@ export default function GeneratorPage() {
       </section>
 
       {preview && (
-        <>
+        <PopIn id={preview.id} className="space-y-5">
           <WorkoutView workout={preview} />
           <div className="sticky bottom-24 z-10 -mx-4 space-y-2 border-t border-stone-200/80 bg-stone-50/90 px-4 pb-2 pt-3 backdrop-blur">
             {saveError && (
-              <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-                <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
-              </p>
+              <PopIn>
+                <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+                  <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
+                </p>
+              </PopIn>
             )}
             <button className="btn-primary w-full shadow-lifted" onClick={setAsToday}>
               Set as today&apos;s workout
             </button>
           </div>
-        </>
+        </PopIn>
       )}
 
       <Disclaimer />
-    </div>
+    </MotionPage>
   );
 }
 

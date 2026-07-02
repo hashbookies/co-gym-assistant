@@ -6,6 +6,7 @@ import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import { assessReadiness, recommendationLabel, CLINICIAN_NOTE } from "@/lib/readiness";
 import { saveReadiness } from "@/lib/storage";
+import { MotionPage, PresenceSwap, PopIn } from "@/components/motion";
 import { CheckCircleIcon, AlertIcon, ShieldIcon } from "@/components/icons";
 import type { ReadinessAnswers, ReadinessResult } from "@/lib/types";
 
@@ -34,9 +35,10 @@ export default function ReadinessPage() {
   }
 
   return (
-    <div className="space-y-5">
+    <MotionPage className="space-y-5">
       <AppHeader title="Safety Check-In" subtitle="A quick honest check before you train." />
 
+      <PresenceSwap id={!!result}>
       {!result ? (
         <section className="space-y-3">
           <Choice label="Nausea" value={a.nausea} onChange={(v) => set("nausea", v as ReadinessAnswers["nausea"])}
@@ -65,7 +67,8 @@ export default function ReadinessPage() {
           onRedo={() => { setResult(null); setSaveError(null); }}
         />
       )}
-    </div>
+      </PresenceSwap>
+    </MotionPage>
   );
 }
 
@@ -81,9 +84,11 @@ function Result({ result, saveError, onContinue, onRedo }: {
   return (
     <section className="space-y-4">
       {saveError && (
-        <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-          <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
-        </p>
+        <PopIn>
+          <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+            <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
+          </p>
+        </PopIn>
       )}
       <div className={tone}>
         <div className="flex items-center gap-2">

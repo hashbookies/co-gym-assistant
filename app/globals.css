@@ -64,8 +64,10 @@ body {
   @apply rounded-2xl border border-rose-200/70 bg-rose-50/70 p-4 shadow-card;
 }
 
+/* Mono micro-label for metadata: the monospace face + wide tracking gives
+   section markers a quiet technical register that separates them from prose. */
 .section-label {
-  @apply text-[11px] font-bold uppercase tracking-[0.08em] text-stone-400;
+  @apply font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-stone-400;
 }
 
 /* ---------- Buttons ---------- */
@@ -74,7 +76,7 @@ body {
   @apply inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-3 text-sm font-semibold transition active:scale-[0.98];
 }
 .btn-primary {
-  @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700;
+  @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700 hover:shadow;
 }
 .btn-secondary {
   @apply btn border border-stone-300 bg-white text-stone-700 hover:bg-stone-100;
@@ -105,4 +107,19 @@ body {
 }
 .segmented-item-active {
   @apply bg-white text-brand-700 shadow-sm;
+}
+
+/* ---------- Reduced motion ---------- */
+
+/* Belt-and-braces alongside useReducedMotion in components/motion.tsx: any
+   plain CSS transition/animation collapses to near-instant for users who ask
+   for reduced motion. Functionality is unchanged. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

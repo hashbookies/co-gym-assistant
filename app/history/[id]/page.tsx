@@ -7,6 +7,7 @@ import AppHeader from "@/components/AppHeader";
 import { loadLogById, updateLog, deleteLog } from "@/lib/storage";
 import { EDITABLE_STATUSES } from "@/lib/logs";
 import { recommendationLabel } from "@/lib/readiness";
+import { MotionPage, AnimatedCard, PopIn } from "@/components/motion";
 import { CheckCircleIcon, PencilIcon, TrashIcon, AlertIcon } from "@/components/icons";
 import type { WorkoutLog, ExerciseLog, ActualSet, ExerciseStatus, SessionFeel } from "@/lib/types";
 
@@ -122,7 +123,7 @@ export default function HistoryDetailPage({ params }: { params: { id: string } }
   });
 
   return (
-    <div className="space-y-4 pb-4">
+    <MotionPage className="space-y-4 pb-4">
       <div className="flex items-center justify-between gap-2">
         <Link href="/history" className="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">← History</Link>
         {!editing && (
@@ -141,17 +142,21 @@ export default function HistoryDetailPage({ params }: { params: { id: string } }
       </div>
 
       {deleteError && (
-        <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-          <AlertIcon className="h-3.5 w-3.5 flex-none" /> {deleteError}
-        </p>
+        <PopIn>
+          <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+            <AlertIcon className="h-3.5 w-3.5 flex-none" /> {deleteError}
+          </p>
+        </PopIn>
       )}
 
       <AppHeader title={shown.title} subtitle={dateLabel} />
 
       {saved && !editing && (
-        <p className="flex items-center gap-1.5 rounded-xl bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">
-          <CheckCircleIcon className="h-3.5 w-3.5" /> Changes saved.
-        </p>
+        <PopIn>
+          <p className="flex items-center gap-1.5 rounded-xl bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">
+            <CheckCircleIcon className="h-3.5 w-3.5" /> Changes saved.
+          </p>
+        </PopIn>
       )}
 
       <div className="card-brand">
@@ -177,30 +182,33 @@ export default function HistoryDetailPage({ params }: { params: { id: string } }
 
       <div className="space-y-3">
         {shown.exercises.map((ex, i) => (
-          <ExerciseDetailCard
-            key={`${ex.exerciseSlug}-${i}`}
-            exercise={ex}
-            editing={editing}
-            onChangeExercise={(patch) => updateExercise(i, patch)}
-            onChangeSet={(si, patch) => updateSet(i, si, patch)}
-          />
+          <AnimatedCard key={`${ex.exerciseSlug}-${i}`} index={i}>
+            <ExerciseDetailCard
+              exercise={ex}
+              editing={editing}
+              onChangeExercise={(patch) => updateExercise(i, patch)}
+              onChangeSet={(si, patch) => updateSet(i, si, patch)}
+            />
+          </AnimatedCard>
         ))}
       </div>
 
       {editing && (
-        <div className="sticky bottom-24 z-10 -mx-4 space-y-2 border-t border-stone-200/80 bg-stone-50/95 px-4 pb-2 pt-3 backdrop-blur">
+        <PopIn className="sticky bottom-24 z-10 -mx-4 space-y-2 border-t border-stone-200/80 bg-stone-50/95 px-4 pb-2 pt-3 backdrop-blur">
           {saveError && (
-            <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-              <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
-            </p>
+            <PopIn>
+              <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+                <AlertIcon className="h-3.5 w-3.5 flex-none" /> {saveError}
+              </p>
+            </PopIn>
           )}
           <div className="flex gap-2">
             <button onClick={cancelEdit} className="btn-secondary flex-1">Cancel</button>
             <button onClick={save} className="btn-primary flex-1">Save changes</button>
           </div>
-        </div>
+        </PopIn>
       )}
-    </div>
+    </MotionPage>
   );
 }
 

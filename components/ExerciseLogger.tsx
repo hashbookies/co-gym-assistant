@@ -5,6 +5,7 @@ import type { ExercisePrescription, ActualSet, ExerciseLog, SessionFeel, WeightU
 import { makeNotStartedLog, makeSkippedLog, plannedSetsFor, appendPlannedSet, finishAsModified } from "@/lib/logs";
 import { completedSetCount, nextSetNumber, isExerciseComplete, recommendRest } from "@/lib/session-flow";
 import RestTimer from "@/components/RestTimer";
+import { PopIn } from "@/components/motion";
 import { CheckCircleIcon } from "@/components/icons";
 
 const FEELS: { value: SessionFeel; label: string }[] = [
@@ -272,7 +273,7 @@ export default function ExerciseLogger({
 
       {/* Guided rest / next-set flow — guidance only, never auto-logs. */}
       {isExerciseComplete(log) && (
-        <div className="mt-3 rounded-xl bg-brand-50 p-2.5 text-center">
+        <PopIn className="mt-3 rounded-xl bg-brand-50 p-2.5 text-center">
           <p className="flex items-center justify-center gap-1 text-xs font-semibold text-brand-700">
             <CheckCircleIcon className="h-3.5 w-3.5" /> Exercise complete
           </p>
@@ -281,11 +282,11 @@ export default function ExerciseLogger({
               Move to next exercise
             </button>
           )}
-        </div>
+        </PopIn>
       )}
 
       {recommendRest(log) && (
-        <div className="mt-3">
+        <PopIn id={completedSetCount(log)} className="mt-3">
           <p className="text-center text-[11px] text-stone-500">Set {completedSetCount(log)} logged</p>
           <p className="mb-1.5 text-center text-[11px] text-stone-500">
             Next set: {nextSetNumber(log)} of {log.plannedSets}
@@ -300,18 +301,18 @@ export default function ExerciseLogger({
           <button onClick={finishNowAsModified} className="mt-2 w-full text-center text-[11px] font-semibold text-stone-400 hover:text-stone-600">
             Finish as modified
           </button>
-        </div>
+        </PopIn>
       )}
 
       {!editing && log.status === "modified" && (
-        <div className="mt-3 rounded-xl bg-amber-50 p-2.5 text-center">
+        <PopIn className="mt-3 rounded-xl bg-amber-50 p-2.5 text-center">
           <p className="text-xs font-semibold text-amber-800">Exercise finished as modified</p>
           {onMoveToNext && (
             <button onClick={onMoveToNext} className="btn-primary mt-2 w-full py-2 text-xs">
               Move to next exercise
             </button>
           )}
-        </div>
+        </PopIn>
       )}
     </div>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { formatCountdown } from "@/lib/timing";
 import { playBeep } from "@/lib/sound";
+import { PopIn } from "@/components/motion";
 import { DumbbellIcon, CheckCircleIcon } from "@/components/icons";
 
 /**
@@ -184,14 +185,18 @@ export default function ExerciseMedia({
             </span>
           )}
           {finished && (
-            <span className="flex items-center gap-1 whitespace-nowrap rounded-lg bg-brand-50 px-2 py-1.5 text-xs font-semibold text-brand-700">
-              <CheckCircleIcon className="h-3.5 w-3.5" /> Time&apos;s up
-            </span>
+            <PopIn>
+              <span className="flex items-center gap-1 whitespace-nowrap rounded-lg bg-brand-50 px-2 py-1.5 text-xs font-semibold text-brand-700">
+                <CheckCircleIcon className="h-3.5 w-3.5" /> Time&apos;s up
+              </span>
+            </PopIn>
           )}
         </div>
       )}
       {finished && showLogPrompt && (
-        <p className="mt-1.5 text-center text-[11px] text-stone-500">Log your set when ready.</p>
+        <PopIn>
+          <p className="mt-1.5 text-center text-[11px] text-stone-500">Log your set when ready.</p>
+        </PopIn>
       )}
     </div>
   );

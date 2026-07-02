@@ -5,6 +5,7 @@ import AppHeader from "@/components/AppHeader";
 import Disclaimer from "@/components/Disclaimer";
 import { loadSettings, saveSettings, DEFAULT_SETTINGS, loadLogs, saveLogs } from "@/lib/storage";
 import { buildExportBundle, parseImportBundle, mergeLogs } from "@/lib/backup";
+import { MotionPage, PopIn } from "@/components/motion";
 import { DumbbellIcon, GearIcon, CheckCircleIcon, DownloadIcon, UploadIcon, AlertIcon } from "@/components/icons";
 import type { Settings, WorkoutLog } from "@/lib/types";
 
@@ -106,7 +107,7 @@ export default function SettingsPage() {
   if (!ready) return <div className="card text-sm text-stone-400">Loading…</div>;
 
   return (
-    <div className="space-y-4">
+    <MotionPage className="space-y-4">
       <AppHeader title="Settings" subtitle="Your equipment and training preferences." />
 
       <section className="card space-y-3">
@@ -169,9 +170,11 @@ export default function SettingsPage() {
         {saved ? <><CheckCircleIcon className="h-4 w-4" /> Saved</> : "Save settings"}
       </button>
       {settingsError && (
-        <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-          <AlertIcon className="h-3.5 w-3.5 flex-none" /> {settingsError}
-        </p>
+        <PopIn>
+          <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+            <AlertIcon className="h-3.5 w-3.5 flex-none" /> {settingsError}
+          </p>
+        </PopIn>
       )}
 
       <section className="card space-y-3">
@@ -191,19 +194,23 @@ export default function SettingsPage() {
         </div>
 
         {exportError && (
-          <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-            <AlertIcon className="h-3.5 w-3.5 flex-none" /> {exportError}
-          </p>
+          <PopIn>
+            <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+              <AlertIcon className="h-3.5 w-3.5 flex-none" /> {exportError}
+            </p>
+          </PopIn>
         )}
 
         {importError && (
-          <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
-            <AlertIcon className="h-3.5 w-3.5 flex-none" /> {importError}
-          </p>
+          <PopIn>
+            <p className="flex items-center gap-1.5 rounded-xl bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700">
+              <AlertIcon className="h-3.5 w-3.5 flex-none" /> {importError}
+            </p>
+          </PopIn>
         )}
 
         {pendingImport && (
-          <div className="space-y-2 rounded-xl border border-amber-200/70 bg-amber-50/70 p-3">
+          <PopIn className="space-y-2 rounded-xl border border-amber-200/70 bg-amber-50/70 p-3">
             <p className="text-xs font-semibold text-amber-800">
               Found {pendingImport.length} workout{pendingImport.length === 1 ? "" : "s"} in that file. How should it be added?
             </p>
@@ -218,18 +225,20 @@ export default function SettingsPage() {
             <button onClick={() => setPendingImport(null)} className="w-full text-center text-[11px] font-semibold text-stone-400 hover:text-stone-600">
               Cancel
             </button>
-          </div>
+          </PopIn>
         )}
 
         {importResult && (
-          <p className="flex items-center gap-1.5 rounded-xl bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">
-            <CheckCircleIcon className="h-3.5 w-3.5" /> {importResult}
-          </p>
+          <PopIn>
+            <p className="flex items-center gap-1.5 rounded-xl bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-700">
+              <CheckCircleIcon className="h-3.5 w-3.5" /> {importResult}
+            </p>
+          </PopIn>
         )}
       </section>
 
       <Disclaimer />
-    </div>
+    </MotionPage>
   );
 }
 

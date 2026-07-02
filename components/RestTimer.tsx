@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { formatCountdown } from "@/lib/timing";
 import { playBeep } from "@/lib/sound";
+import { PopIn } from "@/components/motion";
 import { CheckCircleIcon } from "@/components/icons";
 
 /**
@@ -82,25 +83,25 @@ export default function RestTimer({
 
   if (ended === "finished") {
     return (
-      <div className="rounded-xl bg-brand-50 p-2.5 text-center">
+      <PopIn className="rounded-xl bg-brand-50 p-2.5 text-center">
         <p className="flex items-center justify-center gap-1 text-xs font-semibold text-brand-700">
           <CheckCircleIcon className="h-3.5 w-3.5" /> Rest complete
         </p>
         <button onClick={onStartNextSet} className="btn-primary mt-2 w-full py-2 text-xs">
           Start next set
         </button>
-      </div>
+      </PopIn>
     );
   }
 
   if (ended === "skipped") {
     return (
-      <div className="rounded-xl bg-stone-100 p-2.5 text-center">
+      <PopIn className="rounded-xl bg-stone-100 p-2.5 text-center">
         <p className="text-xs font-semibold text-stone-600">Rest skipped</p>
         <button onClick={onStartNextSet} className="btn-primary mt-2 w-full py-2 text-xs">
           Start next set
         </button>
-      </div>
+      </PopIn>
     );
   }
 
