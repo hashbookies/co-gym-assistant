@@ -37,3 +37,27 @@ coverage/
 # Legacy prototype files — superseded by the Next.js app, kept locally but not tracked.
 /index.html
 /setup.html
+
+# Editor / Agent configuration
+CLAUDE.md
+claude.md
+CLAUDE.local.md
+.claude/
+.codex/
+.cursor/
+.windsurf/
+.mcp.json
+
+# Logs
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Build targets & coverage
+dist/
+coverage/
+
+# OS files
+Thumbs.db
+
