@@ -8,6 +8,7 @@ import { loadLogById, updateLog, deleteLog } from "@/lib/storage";
 import { EDITABLE_STATUSES } from "@/lib/logs";
 import { recommendationLabel } from "@/lib/readiness";
 import { MotionPage, AnimatedCard, PopIn } from "@/components/motion";
+import { SkeletonStack } from "@/components/Skeleton";
 import { CheckCircleIcon, PencilIcon, TrashIcon, AlertIcon } from "@/components/icons";
 import type { WorkoutLog, ExerciseLog, ActualSet, ExerciseStatus, SessionFeel } from "@/lib/types";
 
@@ -103,7 +104,7 @@ export default function HistoryDetailPage({ params }: { params: { id: string } }
   }
 
   if (log === undefined) {
-    return <div className="card text-sm text-stone-400">Loading…</div>;
+    return <MotionPage className="space-y-4 pb-4"><SkeletonStack /></MotionPage>;
   }
   if (log === null) {
     return (

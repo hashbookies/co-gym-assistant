@@ -6,6 +6,7 @@ import Disclaimer from "@/components/Disclaimer";
 import { loadSettings, saveSettings, DEFAULT_SETTINGS, loadLogs, saveLogs } from "@/lib/storage";
 import { buildExportBundle, parseImportBundle, mergeLogs } from "@/lib/backup";
 import { MotionPage, PopIn } from "@/components/motion";
+import { SkeletonStack } from "@/components/Skeleton";
 import { DumbbellIcon, GearIcon, CheckCircleIcon, DownloadIcon, UploadIcon, AlertIcon } from "@/components/icons";
 import type { Settings, WorkoutLog } from "@/lib/types";
 
@@ -104,7 +105,7 @@ export default function SettingsPage() {
     setPendingImport(null);
   }
 
-  if (!ready) return <div className="card text-sm text-stone-400">Loading…</div>;
+  if (!ready) return <MotionPage className="space-y-4"><SkeletonStack /></MotionPage>;
 
   return (
     <MotionPage className="space-y-4">

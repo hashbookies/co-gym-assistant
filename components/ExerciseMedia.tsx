@@ -147,6 +147,7 @@ export default function ExerciseMedia({
       </span>
       <p className="mt-2 text-xs font-semibold text-stone-600">{alt}</p>
       <p className="text-[11px] text-stone-400">Demo unavailable</p>
+      <p className="mt-1 text-[11px] text-stone-400">Use the written steps below.</p>
     </div>
   );
 
@@ -257,6 +258,7 @@ function EagerImg({ candidates, alt }: { candidates: string[]; alt: string }) {
         </span>
         <p className="mt-2 text-sm font-semibold text-stone-600">{alt}</p>
         <p className="text-xs text-stone-400">Demo unavailable</p>
+        <p className="mt-1 text-xs text-stone-400">Follow the written steps below.</p>
       </div>
     );
   }

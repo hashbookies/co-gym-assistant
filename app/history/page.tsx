@@ -5,6 +5,7 @@ import Link from "next/link";
 import AppHeader from "@/components/AppHeader";
 import { loadLogs } from "@/lib/storage";
 import { MotionPage, AnimatedCard } from "@/components/motion";
+import { SkeletonList } from "@/components/Skeleton";
 import { ChartIcon, DumbbellIcon } from "@/components/icons";
 import type { WorkoutLog } from "@/lib/types";
 
@@ -25,14 +26,16 @@ export default function HistoryPage() {
       />
 
       {!ready ? (
-        <div className="card text-sm text-stone-400">Loading…</div>
+        <SkeletonList />
       ) : logs.length === 0 ? (
         <div className="card flex flex-col items-center py-8 text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-50">
             <ChartIcon className="h-5 w-5 text-brand-600" />
           </div>
-          <p className="mt-3 text-sm text-stone-600">No workouts logged yet. Your first one will show up here.</p>
-          <Link href="/generator" className="btn-primary mt-4 w-full">Generate your first workout</Link>
+          <p className="mt-3 font-semibold text-stone-900">No workouts logged yet</p>
+          <p className="mt-1 text-sm text-stone-600">Complete your first guided workout to start building history.</p>
+          <Link href="/generator" className="btn-primary mt-4 w-full">Generate workout</Link>
+          <Link href="/today" className="btn-secondary mt-2 w-full">Go to Today</Link>
         </div>
       ) : (
         <ul className="space-y-2.5">

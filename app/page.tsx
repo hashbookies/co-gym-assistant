@@ -7,6 +7,7 @@ import Disclaimer from "@/components/Disclaimer";
 import { loadReadiness, loadCurrentWorkout } from "@/lib/storage";
 import { recommendationLabel } from "@/lib/readiness";
 import { ShieldIcon, DumbbellIcon, BookIcon, ChartIcon } from "@/components/icons";
+import { SkeletonStack } from "@/components/Skeleton";
 import type { ReadinessResult, Workout } from "@/lib/types";
 
 // Dashboard = today-first. Minimal: readiness status + start-workout CTA.
@@ -35,7 +36,7 @@ export default function DashboardPage() {
       <AppHeader title="Today" subtitle="Train safely, stay consistent." />
 
       {!ready ? (
-        <div className="card text-sm text-stone-400">Loading…</div>
+        <SkeletonStack />
       ) : (
         <>
           {/* Readiness status */}

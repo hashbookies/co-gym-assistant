@@ -14,6 +14,7 @@ import { suggestProgression } from "@/lib/progression";
 import { generateLogId } from "@/lib/logs";
 import { CURRENT_LOG_VERSION } from "@/lib/types";
 import { MotionPage, PopIn } from "@/components/motion";
+import { SkeletonCard } from "@/components/Skeleton";
 import { CheckCircleIcon, DumbbellIcon, AlertIcon } from "@/components/icons";
 import type { Workout, ExerciseLog, ReadinessResult, WeightUnit } from "@/lib/types";
 
@@ -80,7 +81,7 @@ export default function TodayPage() {
       <AppHeader title="Today's Workout" subtitle="Beginner-friendly · RPE-capped · no failure sets." />
 
       {!ready ? (
-        <div className="card text-sm text-stone-400">Loading…</div>
+        <SkeletonCard />
       ) : summary ? (
         <PopIn className="card-brand flex flex-col items-center py-8 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-100">
@@ -116,8 +117,10 @@ export default function TodayPage() {
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-100">
             <DumbbellIcon className="h-5 w-5 text-stone-400" />
           </div>
-          <p className="mt-3 text-sm text-stone-600">No workout set for today.</p>
-          <Link href="/generator" className="btn-primary mt-4 w-full">Generate one</Link>
+          <p className="mt-3 font-semibold text-stone-900">No workout set yet</p>
+          <p className="mt-1 text-sm text-stone-600">Generate a session when you&apos;re ready to train.</p>
+          <Link href="/generator" className="btn-primary mt-4 w-full">Generate workout</Link>
+          <Link href="/readiness" className="btn-secondary mt-2 w-full">Check readiness</Link>
         </div>
       )}
     </MotionPage>

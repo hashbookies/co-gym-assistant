@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { getMediaCandidates } from "@/lib/media";
 import type { LibraryCard, Equipment, SplitTag } from "@/lib/types";
 
 const EQUIPMENT: (Equipment | "all")[] = ["all", "dumbbell", "bodyweight", "band"];
@@ -52,9 +53,7 @@ export default function LibraryBrowser({ exercises }: { exercises: LibraryCard[]
           <li key={e.slug}>
             <Link href={`/library/${e.slug}`} className="card flex items-center justify-between gap-3 transition hover:border-brand-200 hover:shadow-lifted">
               <div className="flex min-w-0 items-center gap-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={e.thumb} alt="" loading="lazy" width={48} height={48}
-                  className="h-12 w-12 flex-none rounded-xl border border-stone-100 bg-stone-100 object-cover" />
+                <ExerciseThumb src={e.thumb} />
                 <div className="min-w-0">
                   <p className="truncate font-semibold text-stone-900">{e.displayName}</p>
                   <p className="mt-0.5 truncate text-xs text-stone-500 capitalize">
@@ -74,6 +73,22 @@ export default function LibraryBrowser({ exercises }: { exercises: LibraryCard[]
         <p className="text-center text-xs text-stone-400">Showing first 200 — refine your search.</p>
       )}
     </div>
+  );
+}
+
+function ExerciseThumb({ src }: { src: string }) {
+  const candidates = getMediaCandidates(src, "image");
+  const [index, setIndex] = useState(0);
+  const failed = index >= candidates.length;
+
+  if (failed || candidates.length === 0) {
+    return <div className="h-12 w-12 flex-none rounded-xl border border-stone-100 bg-stone-100" />;
+  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={candidates[index]} alt="" loading="lazy" width={48} height={48}
+      className="h-12 w-12 flex-none rounded-xl border border-stone-100 bg-stone-100 object-cover"
+      onError={() => setIndex((prev) => prev + 1)} />
   );
 }
 
