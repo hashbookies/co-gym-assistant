@@ -1,13 +1,18 @@
 {
   "name": "Co-Gym Assistant",
   "short_name": "Co-Gym",
-  "description": "Safe, muscle-preserving home workouts using dumbbells, bands, and bodyweight.",
+  "description": "A local-first guided home workout app for timers, honest set logging, rest flow, and workout history.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#059669",
+  "orientation": "portrait",
+  "background_color": "#f7f5f2",
+  "theme_color": "#2f6f4e",
+  "categories": ["health", "fitness", "productivity"],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/maskable-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

@@ -130,6 +130,16 @@ The exercise list and media libraries are curated from an open exercise dataset 
 
 ---
 
+## 📲 PWA behavior
+
+The app ships a web app manifest, app icons (including padded maskable icons), and a service worker so it can be installed and behave like a home-screen app on supported browsers.
+
+- **The service worker registers only in production builds.** In local `next dev` it is intentionally skipped to avoid caching headaches, so PWA install/offline behavior is best tested on the deployed Vercel app (or a local `npm run build && npm start`).
+- The service worker caches a small app shell and static assets, with a network-first strategy for page navigations and an offline fallback to the cached shell.
+- **Offline is not full-featured.** Previously visited pages and your locally saved workouts remain available, but exercise media (images/GIFs) may not load offline — they are deliberately not aggressively cached.
+
+---
+
 ## ⚠️ Disclaimer
 
 Co-Gym Assistant is a personal workout planning and tracking tool. It is not medical advice. Stop exercising if you feel dizzy, unwell, or unsafe, and consult a qualified professional when needed.

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#059669",
+  themeColor: "#2f6f4e", // keep in sync with theme_color in public/manifest.webmanifest
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
