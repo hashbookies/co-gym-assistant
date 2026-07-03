@@ -39,10 +39,10 @@ data/exercises.normalized.json
 data/exercises.final.json
 
 # Media Sync & Large Asset Folders
-images/
-videos/
-public/images/
-public/videos/
+/images/
+/videos/
+/public/images/
+/public/videos/
 
 # Legacy prototype/development setup pages
 index.html

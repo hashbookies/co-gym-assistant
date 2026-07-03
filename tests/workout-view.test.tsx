@@ -39,16 +39,16 @@ describe("WorkoutView: only one demo/timer runs at a time (warm-up + main)", () 
     // Start main-a's demo.
     fireEvent.click(startButtons()[1]);
     let imgs = screen.getAllByRole("img");
-    expect(imgs[0]).toHaveAttribute("src", "/images/w.jpg"); // warm-up untouched
-    expect(imgs[1]).toHaveAttribute("src", "/videos/m1.gif"); // main-a now playing
-    expect(imgs[2]).toHaveAttribute("src", "/images/m2.jpg"); // main-b untouched
+    expect(imgs[0]).toHaveAttribute("src", "/runtime-media/images/w.jpg"); // warm-up untouched
+    expect(imgs[1]).toHaveAttribute("src", "/runtime-media/videos/m1.gif"); // main-a now playing
+    expect(imgs[2]).toHaveAttribute("src", "/runtime-media/images/m2.jpg"); // main-b untouched
 
     // Starting the warm-up card's demo should stop main-a's.
     fireEvent.click(startButtons()[0]); // main-a's button is now "Stop", so index 0 is warm-up
     imgs = screen.getAllByRole("img");
-    expect(imgs[0]).toHaveAttribute("src", "/videos/w.gif"); // warm-up now playing
-    expect(imgs[1]).toHaveAttribute("src", "/images/m1.jpg"); // main-a stopped, back to thumbnail
-    expect(imgs[2]).toHaveAttribute("src", "/images/m2.jpg"); // main-b still untouched
+    expect(imgs[0]).toHaveAttribute("src", "/runtime-media/videos/w.gif"); // warm-up now playing
+    expect(imgs[1]).toHaveAttribute("src", "/runtime-media/images/m1.jpg"); // main-a stopped, back to thumbnail
+    expect(imgs[2]).toHaveAttribute("src", "/runtime-media/images/m2.jpg"); // main-b still untouched
 
     // Only one "Stop" button should exist at any time.
     expect(screen.getAllByRole("button", { name: /stop/i })).toHaveLength(1);
@@ -247,7 +247,7 @@ describe("WorkoutView: guided rest timer", () => {
     // becomes Stop and the gif is showing, exactly like tapping Start directly.
     expect(within(cardA).getByRole("button", { name: /^■ stop$/i })).toBeInTheDocument();
     const img = within(cardA).getAllByRole("img")[0];
-    expect(img).toHaveAttribute("src", "/videos/m1.gif");
+    expect(img).toHaveAttribute("src", "/runtime-media/videos/m1.gif");
   });
 
   it("starting another card's work timer cancels an in-progress rest timer", () => {

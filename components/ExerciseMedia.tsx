@@ -5,6 +5,7 @@ import { formatCountdown } from "@/lib/timing";
 import { playBeep } from "@/lib/sound";
 import { PopIn } from "@/components/motion";
 import { DumbbellIcon, CheckCircleIcon } from "@/components/icons";
+import { getMediaCandidates } from "@/lib/media";
 
 /**
  * Safe exercise media. Plain <img> on purpose: next/image does not optimize
@@ -49,10 +50,14 @@ export default function ExerciseMedia({
   onRequestStop?: () => void;
   showLogPrompt?: boolean;
 }) {
-  // All hooks are declared unconditionally (before any mode-based branching)
-  // so eager and lazyDemo renders never change hook call order.
+  const imageCandidates = getMediaCandidates(image, "image");
+  const gifCandidates = getMediaCandidates(gif, "video");
+
+  const [imageIndex, setImageIndex] = useState(0);
+  const [gifIndex, setGifIndex] = useState(0);
+
   const [imgFailed, setImgFailed] = useState(!image);
-  const [gifFailed, setGifFailed] = useState(false);
+  const [gifFailed, setGifFailed] = useState(!gif);
   const [localPlaying, setLocalPlaying] = useState(false);
   const controlled = isActive !== undefined;
   const playing = controlled ? !!isActive : localPlaying;
@@ -64,6 +69,17 @@ export default function ExerciseMedia({
   // own" from "playing turned off because of a manual Stop / switching away".
   // Only the former should preserve the finished/Time's-up state.
   const finishedNaturallyRef = useRef(false);
+
+  // Reset indices and status if props change
+  useEffect(() => {
+    setImageIndex(0);
+    setImgFailed(!image);
+  }, [image]);
+
+  useEffect(() => {
+    setGifIndex(0);
+    setGifFailed(!gif);
+  }, [gif]);
 
   function start() {
     if (controlled) onRequestStart?.();
@@ -125,22 +141,24 @@ export default function ExerciseMedia({
   // reading as a mismatched gray box. The eager/detail-page placeholder is
   // left on its original stone-50 fill — unaffected by this change.
   const Placeholder = ({ compact = false }: { compact?: boolean }) => (
-    <div className={`flex w-full items-center justify-center ${compact ? "aspect-[4/3] max-h-56 bg-white" : "aspect-square bg-stone-50"}`}>
+    <div className={`flex w-full flex-col items-center justify-center p-4 text-center ${compact ? "aspect-[4/3] max-h-56 bg-white" : "aspect-square bg-stone-50"}`}>
       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-stone-100">
         <DumbbellIcon className="h-5 w-5 text-stone-400" />
       </span>
+      <p className="mt-2 text-xs font-semibold text-stone-600">{alt}</p>
+      <p className="text-[11px] text-stone-400">Demo unavailable</p>
     </div>
   );
 
   // ---- Eager (detail page): gif first, fallback image, fallback placeholder ----
   if (mode === "eager") {
-    const primary = gif || image || "";
-    if (!primary) return <Placeholder />;
-    return <EagerImg primary={primary} image={image} alt={alt} />;
+    const eagerCandidates = [...gifCandidates, ...imageCandidates];
+    if (eagerCandidates.length === 0) return <Placeholder />;
+    return <EagerImg candidates={eagerCandidates} alt={alt} />;
   }
 
   // ---- Lazy demo + guided timer (workout cards) ----
-  const hasGif = !!gif && !gifFailed;
+  const hasGif = gifCandidates.length > 0 && !gifFailed;
   // `!finished` guards the gif immediately once the countdown hits zero, even
   // before a controlled `isActive` prop round-trips back down from the parent.
   const showGif = playing && hasGif && !finished;
@@ -151,25 +169,49 @@ export default function ExerciseMedia({
       <div className="relative max-h-56 overflow-hidden rounded-xl border border-stone-200/70 bg-white">
         {showGif ? (
           <img
-            src={gif}
+            src={gifCandidates[gifIndex]}
             alt={alt}
             className="aspect-[4/3] max-h-56 w-full object-contain"
-            onError={() => { setGifFailed(true); stop(); }}
+            onError={() => {
+              const nextIndex = gifIndex + 1;
+              if (nextIndex >= gifCandidates.length) {
+                setGifFailed(true);
+                stop();
+              } else {
+                setGifIndex(nextIndex);
+              }
+            }}
           />
-        ) : imgFailed ? (
+        ) : (imgFailed || imageCandidates.length === 0) ? (
           <Placeholder compact />
         ) : (
           <img
-            src={image}
+            src={imageCandidates[imageIndex]}
             alt={alt}
             loading="lazy"
             className="aspect-[4/3] max-h-56 w-full object-contain"
-            onError={() => setImgFailed(true)}
+            onError={() => {
+              const nextIndex = imageIndex + 1;
+              if (nextIndex >= imageCandidates.length) {
+                setImgFailed(true);
+              } else {
+                setImageIndex(nextIndex);
+              }
+            }}
           />
         )}
       </div>
 
-      {hasGif && (
+      {!hasGif ? (
+        <div className="mt-2 flex items-center gap-1.5">
+          <button
+            disabled
+            className="flex-1 rounded-lg py-1.5 text-xs font-semibold bg-stone-100 text-stone-400 cursor-not-allowed border border-stone-200"
+          >
+            Demo unavailable
+          </button>
+        </div>
+      ) : (
         <div className="mt-2 flex items-center gap-1.5">
           <button
             onClick={() => (playing ? stop() : start())}
@@ -203,27 +245,30 @@ export default function ExerciseMedia({
 }
 
 // Eager variant kept separate so detail-page behavior is unchanged.
-function EagerImg({ primary, image, alt }: { primary: string; image?: string; alt: string }) {
-  const [src, setSrc] = useState(primary);
-  const [failed, setFailed] = useState(false);
-  if (failed) {
+function EagerImg({ candidates, alt }: { candidates: string[]; alt: string }) {
+  const [candidateIndex, setCandidateIndex] = useState(0);
+  const failed = candidateIndex >= candidates.length;
+
+  if (failed || candidates.length === 0) {
     return (
-      <div className="flex aspect-square w-full items-center justify-center bg-stone-50">
+      <div className="flex aspect-square w-full flex-col items-center justify-center bg-stone-50 p-4 text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-stone-100">
           <DumbbellIcon className="h-6 w-6 text-stone-400" />
         </span>
+        <p className="mt-2 text-sm font-semibold text-stone-600">{alt}</p>
+        <p className="text-xs text-stone-400">Demo unavailable</p>
       </div>
     );
   }
+
   return (
     <img
-      src={src}
+      src={candidates[candidateIndex]}
       alt={alt}
       loading="eager"
       className="aspect-square w-full bg-stone-100 object-cover"
       onError={() => {
-        if (image && src !== image) setSrc(image);
-        else setFailed(true);
+        setCandidateIndex((prev) => prev + 1);
       }}
     />
   );

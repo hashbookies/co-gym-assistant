@@ -12,6 +12,7 @@
     "test:watch": "vitest",
     "build:pool": "node scripts/build-mvp-pool.js",
     "sync:media": "node scripts/sync-media.js",
+    "sync:runtime-media": "node scripts/sync-runtime-media.js",
     "gen:icons": "node scripts/gen-icons.js"
   },
   "dependencies": {
