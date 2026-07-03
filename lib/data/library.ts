@@ -4,6 +4,7 @@
 // client list payload (we project a slim card shape for lists).
 import libJson from "@/data/exercises.tagged.json";
 import { MVP_POOL } from "@/lib/data/pool";
+import { toRuntimeMediaPath } from "@/lib/media";
 import type { LibraryCard, LibraryExercise } from "@/lib/types";
 
 // Shape of a raw tagged record (only the fields we read).
@@ -34,16 +35,19 @@ const POOL_SLUGS = new Set(MVP_POOL.map((e) => e.slug));
 
 // Source paths are relative ("images/0001-x.jpg"); media is served from /public
 // at an absolute path. mediaUrl normalizes + guards against a missing value.
-function mediaUrl(p: string | undefined): string {
+function mediaUrl(p: string | undefined, kind: "image" | "video"): string {
   if (!p) return "";
-  return p.startsWith("/") ? p : `/${p}`;
+  if (p.startsWith("http://") || p.startsWith("https://")) {
+    return p;
+  }
+  return toRuntimeMediaPath(p, kind);
 }
 
 function toCard(r: RawTagged): LibraryCard {
   return {
     slug: r.slug,
     displayName: r.name,
-    thumb: mediaUrl(r.image),
+    thumb: mediaUrl(r.image, "image"),
     equipment: r.equipment as LibraryCard["equipment"],
     movementPattern: r.movementPattern as LibraryCard["movementPattern"],
     splitTag: r.splitTag as LibraryCard["splitTag"],
@@ -89,8 +93,8 @@ export function getExerciseBySlug(slug: string): LibraryExercise | undefined {
     secondaryMuscles: r.secondaryMuscles,
     instructionsEn: r.instructionsEn,
     instructionStepsEn: r.instructionStepsEn,
-    image: mediaUrl(r.image),
-    gifUrl: mediaUrl(r.gifUrl),
+    image: mediaUrl(r.image, "image"),
+    gifUrl: mediaUrl(r.gifUrl, "video"),
   };
 }
 
